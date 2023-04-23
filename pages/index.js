@@ -1421,7 +1421,7 @@ export default function Home() {
             </div>
           </div>        
           <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
-            <a href="">See More {">>"}</a>
+            <a href="/blogs">See More {">>"}</a>
           </div>
         </div>
         {/* Blog Section */}

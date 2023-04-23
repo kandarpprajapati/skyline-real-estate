@@ -178,9 +178,9 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="bg-gray-300">
+          <div className="bg-gray-400">
             <div className="container px-5 py-4 mx-auto">
-              <p className="text-sm text-gray-700 capitalize xl:text-center">
+              <p className="text-sm text-black capitalize xl:text-center">
                 © 2023 Skyline All rights reserved
               </p>
             </div>
