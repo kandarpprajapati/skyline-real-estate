@@ -14,6 +14,7 @@ export default function Home() {
       </Head>
 
       <main>
+        {/* Hero Section */}
         <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
           <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
             <svg
@@ -66,53 +67,56 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* Hero Section */}
 
         {/* <!-- ====== Brands Section Start --> */}
         <div className="bg-slate-100">
           <section className="py-12">
-            <div class="container mx-auto">
-              <div class="-mx-4 flex flex-wrap">
-                <div class="w-full px-4">
-                   <div className="text-center text-xl font-bold text-gray-600">TRUSTED BY</div>
-                  <div class="flex flex-wrap items-center justify-center">
+            <div className="container mx-auto">
+              <div className="-mx-4 flex flex-wrap">
+                <div className="w-full px-4">
+                  <div className="text-center text-xl font-bold text-gray-600">
+                    TRUSTED BY
+                  </div>
+                  <div className="flex flex-wrap items-center justify-center">
                     <a
                       href="javascript:void(0)"
-                      class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
+                      className="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
                     >
                       <img
                         src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/graygrids.svg"
                         alt="image"
-                        class="h-10 w-full"
+                        className="h-10 w-full"
                       />
                     </a>
                     <a
                       href="javascript:void(0)"
-                      class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
+                      className="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
                     >
                       <img
                         src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/lineicons.svg"
                         alt="image"
-                        class="h-10 w-full"
+                        className="h-10 w-full"
                       />
                     </a>
                     <a
                       href="javascript:void(0)"
-                      class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
+                      className="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
                     >
                       <img
                         src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/uideck.svg"
                         alt="image"
-                        class="h-10 w-full"
+                        className="h-10 w-full"
                       />
                     </a>
                     <a
                       href="javascript:void(0)"
-                      class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
+                      className="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
                     >
                       <img
                         src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/ayroui.svg"
                         alt="image"
-                        class="h-10 w-full"
+                        className="h-10 w-full"
                       />
                     </a>
                   </div>
@@ -120,37 +124,39 @@ export default function Home() {
               </div>
             </div>
           </section>
-          {/* <!-- ====== Brands Section End --> */}
         </div>
-        <section class="overflow-hidden lg:pt-[30px] lg:pb-[30px]">
-          <div class="container mx-auto">
-            <div class="-mx-4 flex flex-wrap items-center justify-between">
-              <div class="w-full px-4 lg:w-6/12">
-                <div class="-mx-3 flex items-center sm:-mx-4">
-                  <div class="w-full px-3 sm:px-4 xl:w-1/2">
-                    <div class="py-3 sm:py-4">
+        {/* <!-- ====== Brands Section End --> */}
+
+        {/* About Section */}
+        <section className="overflow-hidden lg:pt-[30px] lg:pb-[30px]">
+          <div className="container mx-auto">
+            <div className="-mx-4 flex flex-wrap items-center justify-between">
+              <div className="w-full px-4 lg:w-6/12">
+                <div className="-mx-3 flex items-center sm:-mx-4">
+                  <div className="w-full px-3 sm:px-4 xl:w-1/2">
+                    <div className="py-3 sm:py-4">
                       <img
                         src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-01/image-1.jpg"
                         alt=""
-                        class="w-full rounded-2xl"
+                        className="w-full rounded-2xl"
                       />
                     </div>
-                    <div class="py-3 sm:py-4">
+                    <div className="py-3 sm:py-4">
                       <img
                         src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-01/image-2.jpg"
                         alt=""
-                        class="w-full rounded-2xl"
+                        className="w-full rounded-2xl"
                       />
                     </div>
                   </div>
-                  <div class="w-full px-3 sm:px-4 xl:w-1/2">
-                    <div class="relative z-10 my-4">
+                  <div className="w-full px-3 sm:px-4 xl:w-1/2">
+                    <div className="relative z-10 my-4">
                       <img
                         src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-01/image-3.jpg"
                         alt=""
-                        class="w-full rounded-2xl"
+                        className="w-full rounded-2xl"
                       />
-                      <span class="absolute -right-7 -bottom-7 z-[-1]">
+                      <span className="absolute -right-7 -bottom-7 z-[-1]">
                         <svg
                           width="134"
                           height="106"
@@ -724,28 +730,28 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
-                <div class="mt-10 lg:mt-0">
-                  <span class="text-primary mb-2 block text-lg font-semibold">
+              <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
+                <div className="mt-10 lg:mt-0">
+                  <span className="text-primary mb-2 block text-lg font-semibold">
                     About Us
                   </span>
-                  <h2 class="text-dark mb-8 text-3xl font-bold sm:text-4xl">
+                  <h2 className="text-dark mb-8 text-3xl font-bold sm:text-4xl">
                     Make your customers happy by giving services.
                   </h2>
-                  <p class="text-body-color mb-8 text-base">
+                  <p className="text-body-color mb-8 text-base">
                     It is a long established fact that a reader will be
                     distracted by the readable content of a page when looking at
                     its layout. The point of using Lorem Ipsum is that it has a
                     more-or-less.
                   </p>
-                  <p class="text-body-color mb-12 text-base">
+                  <p className="text-body-color mb-12 text-base">
                     A domain name is one of the first steps to establishing your
                     brand. Secure a consistent brand image with a domain name
                     that matches your business.
                   </p>
                   <a
                     href="javascript:void(0)"
-                    class="bg-primary inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    className="bg-primary inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                   >
                     Get Started
                   </a>
@@ -754,6 +760,671 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* About Section */}
+
+        {/* Property Section */}
+        <div className="bg-slate-100 w-full py-10 overflow-hidden">
+          <div className="text-3xl font-semibold text-center">
+            Best Property Listings
+          </div>
+          <div className="flex -mx-4 justify-center pt-6">
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href=""
+                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+              >
+                <div className="relative pb-48 overflow-hidden">
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    For Rent
+                  </span>
+                  <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
+                  <p className="text-sm">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Donec ullamcorper nulla non metus auctor fringilla.
+                  </p>
+                  <div className="mt-3 flex items-center">
+                    <span className="text-lg font-semibold">₹</span>&nbsp;
+                    <span className="font-bold text-xl">4500</span>&nbsp;
+                    <span className="text-sm font-semibold">/month</span>
+                  </div>
+                </div>
+                <div className="p-4 border-t border-b text-xs text-gray-700">
+                  <span className="flex items-center mb-1">
+                    <i className="far fa-clock fa-fw mr-2"></i>
+                    <div className="text-sm text-black font-medium">
+                      {" "}
+                      3 Bedrooms , 2 Bathrooms, 1 Hall & 1 Garage
+                    </div>
+                  </span>
+                  <span className="flex items-center">
+                    <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
+                    <div className="text-lg">By</div>
+                    <div className="text-lg mx-1 font-semibold text-black">
+                      Kandarp
+                    </div>
+                  </span>
+                </div>
+                <div className="p-4 flex items-center text-sm text-gray-600">
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-gray-400"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <span className="ml-2">4.3 Ratings</span>
+                </div>
+              </a>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href=""
+                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+              >
+                <div className="relative pb-48 overflow-hidden">
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    For Sell
+                  </span>
+                  <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
+                  <p className="text-sm">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Donec ullamcorper nulla non metus auctor fringilla.
+                  </p>
+                  <div className="mt-3 flex items-center">
+                    <span className="text-lg font-semibold">₹</span>&nbsp;
+                    <span className="font-bold text-xl">45 Lakhs</span>&nbsp;
+                    {/* <span className="text-sm font-semibold">/month</span> */}
+                  </div>
+                </div>
+                <div className="p-4 border-t border-b text-xs text-gray-700">
+                  <span className="flex items-center mb-1">
+                    <i className="far fa-clock fa-fw mr-2"></i>
+                    <div className="text-sm text-black font-medium">
+                      {" "}
+                      2 Bedrooms, 1 Kitchen, 2 Hall{" "}
+                    </div>
+                  </span>
+                  <span className="flex items-center">
+                    <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
+                    <div className="text-lg">By</div>
+                    <div className="text-lg mx-1 font-semibold text-black">
+                      Hardik
+                    </div>
+                  </span>
+                </div>
+                <div className="p-4 flex items-center text-sm text-gray-600">
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-gray-400"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <span className="ml-2">4.3 Ratings</span>
+                </div>
+              </a>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href=""
+                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+              >
+                <div className="relative pb-48 overflow-hidden">
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    For Rent
+                  </span>
+                  <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
+                  <p className="text-sm">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Donec ullamcorper nulla non metus auctor fringilla.
+                  </p>
+                  <div className="mt-3 flex items-center">
+                    <span className="text-lg font-semibold">₹</span>&nbsp;
+                    <span className="font-bold text-xl">10500</span>&nbsp;
+                    <span className="text-sm font-semibold">/month</span>
+                  </div>
+                </div>
+                <div className="p-4 border-t border-b text-xs text-gray-700">
+                  <span className="flex items-center mb-1">
+                    <i className="far fa-clock fa-fw mr-2"></i>
+                    <div className="text-sm text-black font-medium">
+                      {" "}
+                      4 Bedrooms, 1 Kitchen, 2 Hall & 1 Garage
+                    </div>
+                  </span>
+                  <span className="flex items-center">
+                    <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
+                    <div className="text-lg">By</div>
+                    <div className="text-lg mx-1 font-semibold text-black">
+                      xyz
+                    </div>
+                  </span>
+                </div>
+                <div className="p-4 flex items-center text-sm text-gray-600">
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-yellow-500"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-current text-gray-400"
+                  >
+                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+                  </svg>
+                  <span className="ml-2">4.3 Ratings</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
+            <a href="">See More {">>"}</a>
+          </div>
+        </div>
+        {/* Property Section */}
+
+        {/* Property 2 Section */}
+        <div className="w-full py-10 overflow-hidden">
+          <div className="text-3xl font-semibold text-center">
+            Properties
+          </div>
+          <div className="flex -mx-4 justify-center pt-6">
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href="#"
+                class="block rounded-lg p-4 shadow-sm shadow-indigo-100"
+              >
+                <img
+                  alt="Home"
+                  src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                  class="h-56 w-full rounded-md object-cover"
+                />
+
+                <div class="mt-2">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-sm text-gray-500">$240,000</dd>
+                    </div>
+
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium">123 Wallaby Avenue, Park Road</dd>
+                    </div>
+                  </dl>
+
+                  <div class="mt-6 flex items-center gap-8 text-xs">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Parking</p>
+
+                        <p class="font-medium">2 spaces</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Bathroom</p>
+
+                        <p class="font-medium">2 rooms</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Bedroom</p>
+
+                        <p class="font-medium">4 rooms</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href="#"
+                class="block rounded-lg p-4 shadow-sm shadow-indigo-100"
+              >
+                <img
+                  alt="Home"
+                  src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                  class="h-56 w-full rounded-md object-cover"
+                />
+
+                <div class="mt-2">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-sm text-gray-500">$240,000</dd>
+                    </div>
+
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium">123 Wallaby Avenue, Park Road</dd>
+                    </div>
+                  </dl>
+
+                  <div class="mt-6 flex items-center gap-8 text-xs">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Parking</p>
+
+                        <p class="font-medium">2 spaces</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Bathroom</p>
+
+                        <p class="font-medium">2 rooms</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Bedroom</p>
+
+                        <p class="font-medium">4 rooms</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href="#"
+                class="block rounded-lg p-4 shadow-sm shadow-indigo-100"
+              >
+                <img
+                  alt="Home"
+                  src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                  class="h-56 w-full rounded-md object-cover"
+                />
+
+                <div class="mt-2">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-sm text-gray-500">$240,000</dd>
+                    </div>
+
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium">123 Wallaby Avenue, Park Road</dd>
+                    </div>
+                  </dl>
+
+                  <div class="mt-6 flex items-center gap-8 text-xs">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Parking</p>
+
+                        <p class="font-medium">2 spaces</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Bathroom</p>
+
+                        <p class="font-medium">2 rooms</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Bedroom</p>
+
+                        <p class="font-medium">4 rooms</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        {/* Property 2 Section */}
+
+
+        {/* Blog Section */}
+        <div className="bg-slate-100 w-full py-10 overflow-hidden">
+          <div className="text-3xl font-semibold text-center">
+            Latest Articles
+          </div>
+          <div className="flex -mx-4 justify-center pt-6">
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href=""
+                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+              >
+                <div className="relative pb-48 overflow-hidden">
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src="https://images.unsplash.com/photo-1677798462220-e7b9a383c476?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    category
+                  </span>
+                  <h2 className="mt-2 mb-2  font-bold">This is the very First Blog.</h2>
+                  <p className="text-sm">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Donec ullamcorper nulla non metus auctor fringilla.
+                  </p>
+                  <div className="mt-3 flex items-center">
+                    <span className="font-bold text-lg">Read {'>>'}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href=""
+                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+              >
+                <div className="relative pb-48 overflow-hidden">
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src="https://images.unsplash.com/photo-1681050996045-b4c066d17d73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    category
+                  </span>
+                  <h2 className="mt-2 mb-2  font-bold">This is the very First Blog.</h2>
+                  <p className="text-sm">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Donec ullamcorper nulla non metus auctor fringilla.
+                  </p>
+                  <div className="mt-3 flex items-center">
+                    <span className="font-bold text-lg">Read {'>>'}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a
+                href=""
+                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+              >
+                <div className="relative pb-48 overflow-hidden">
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src="https://images.unsplash.com/photo-1681125121913-31f3a6b66c2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                    alt=""
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    category
+                  </span>
+                  <h2 className="mt-2 mb-2  font-bold">This is the very First Blog.</h2>
+                  <p className="text-sm">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Donec ullamcorper nulla non metus auctor fringilla.
+                  </p>
+                  <div className="mt-3 flex items-center">
+                    <span className="font-bold text-lg">Read {'>>'}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>        
+          <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
+            <a href="">See More {">>"}</a>
+          </div>
+        </div>
+        {/* Blog Section */}
       </main>
     </>
   );
