@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -1421,7 +1422,7 @@ export default function Home() {
             </div>
           </div>        
           <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
-            <a href="/blogs">See More {">>"}</a>
+            <Link href="/blogs">See More {">>"}</Link>
           </div>
         </div>
         {/* Blog Section */}

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Blogs = () => {
@@ -10,8 +11,8 @@ const Blogs = () => {
           </div>
           <div className="flex -mx-4 justify-center pt-6">
             <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-              <a
-                href=""
+              <Link
+                href={'/blogs/first-post'}
                 className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
               >
                 <div className="relative pb-48 overflow-hidden">
@@ -34,7 +35,7 @@ const Blogs = () => {
                     <span className="font-bold text-lg">Read {'>>'}</span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
               <a
