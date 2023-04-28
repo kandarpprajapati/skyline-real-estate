@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -160,11 +161,11 @@ const Footer = () => {
                 </h2>
                 <nav className="mb-10 list-none">
                   <li className="mt-3">
-                    <a className="text-gray-500 cursor-pointer hover:text-gray-900">
+                    <Link href="/contact" className="text-gray-500 cursor-pointer hover:text-gray-900">
                       Send a Message
-                    </a>
+                    </Link>
                   </li>
-                  <li className="mt-3">
+                  {/* <li className="mt-3">
                     <a className="text-gray-500 cursor-pointer hover:text-gray-900">
                       Request a Quote
                     </a>
@@ -173,7 +174,7 @@ const Footer = () => {
                     <a className="text-gray-500 cursor-pointer hover:text-gray-900">
                       +123-456-7890
                     </a>
-                  </li>
+                  </li> */}
                 </nav>
               </div>
             </div>
