@@ -6,9 +6,6 @@ const Blogs = () => {
     <>
         {/* Blog Section */}
         <div className="bg-slate-100 w-full pt-10 overflow-hidden">
-          <div className="text-3xl font-semibold text-center">
-            Latest Articles
-          </div>
           <div className="flex -mx-4 justify-center pt-6">
             <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
               <Link

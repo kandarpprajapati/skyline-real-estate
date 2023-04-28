@@ -1,10 +1,18 @@
 import Link from "next/link";
-import React from "react";
+import {React,useRef} from "react";
 
 const Navbar = () => {
+
+  const dropdown = useRef(null)
+
+  const open = ()=>{
+    dropdown.current.style.display = "block";
+  }
+
+
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 dark:bg-gray-900 relative z-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto h-24">
           <Link href="/" className="flex items-center">
             <img
@@ -24,6 +32,7 @@ const Navbar = () => {
               aria-expanded="false"
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
+              onClick={open}
             >
               <span className="sr-only">Open user menu</span>
               <img
@@ -35,8 +44,9 @@ const Navbar = () => {
 
             {/* <!-- Dropdown menu --> */}
             <div
-              className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+              className="z-40 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 top-5"
               id="user-dropdown"
+              ref={dropdown}
             >
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
