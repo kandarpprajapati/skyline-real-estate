@@ -24,7 +24,7 @@ const SellProperty = () => {
       <h1 className="text-4xl font-bold mb-4">Add Property</h1>
       <form className="w-1/2" onSubmit={handleSubmit}>
         <label className="block mb-2" htmlFor="name">
-          Name
+          Name of Property
         </label>
         <input
           className="w-full mb-4 border border-gray-400 p-2"
