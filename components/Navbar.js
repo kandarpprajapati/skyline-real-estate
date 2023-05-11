@@ -16,13 +16,13 @@ const Navbar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto h-24">
           <Link href="/" className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8 mr-3"
+              src="/logo.png"
+              className="h-24"
               alt="Skyline Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Skyline
-            </span>
+            </span> */}
           </Link>
           <div className="flex items-center md:order-2">
             <button
@@ -31,6 +31,7 @@ const Navbar = () => {
               id="user-menu-button"
               aria-expanded="false"
               data-dropdown-toggle="user-dropdown"
+              // data-dropdown-trigger="hover"
               data-dropdown-placement="bottom"
               onClick={open}
             >
