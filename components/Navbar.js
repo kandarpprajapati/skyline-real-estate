@@ -9,7 +9,6 @@ const Navbar = () => {
     dropdown.current.style.display = "block";
   }
 
-
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900 relative z-50">
