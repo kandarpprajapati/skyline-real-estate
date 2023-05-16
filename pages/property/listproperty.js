@@ -227,7 +227,7 @@ const ListProperty = () => {
                     class="w-full shadow-inner p-4 border-0"
                     type="text"
                     name="price"
-                    placeholder="₹85 Lakhs OR ₹10000/month"
+                    placeholder="₹85 Lacs OR ₹10000/month"
                     onChange={handleChange}
                   ></input>
                 </div>
