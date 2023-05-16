@@ -1,6 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
 
 const ListProperty = () => {
+
+  const [property, setProperty] = useState({
+    name: '',
+    building_no:'',
+    address_street:'',
+    mobile:'',
+    email:'',
+    list_for:'',
+    plotarea:'',
+    bedrooms:'',
+    hall:'',
+    kitchen:'',
+    price: '',
+    description: '',
+    images: '',
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setProperty((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(property);
+  };
+
   return (
     <>
       <div class="min-h-screen font-sans leading-normal overflow-x-hidden lg:overflow-auto">
@@ -28,6 +55,7 @@ const ListProperty = () => {
                       type="text"
                       name="name"
                       placeholder="NR House"
+                      onChange={handleChange}
                     />
                   </div>
                   <div class="md:flex mb-4">
@@ -40,6 +68,7 @@ const ListProperty = () => {
                         type="text"
                         name="address_street"
                         placeholder="Amit society, Airport, Mumbai"
+                        onChange={handleChange}
                       />
                     </div>
                     <div class="md:flex-1 md:pl-3">
@@ -51,6 +80,7 @@ const ListProperty = () => {
                         type="text"
                         name="building_no"
                         placeholder="A-3"
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -65,13 +95,14 @@ const ListProperty = () => {
                 <div class="md:flex-1 mb:mt-0 md:px-3">
                   <div class="mb-4">
                     <label class="block uppercase tracking-wide text-xs font-bold">
-                      Phone
+                      Mobile
                     </label>
                     <input
                       class="w-full shadow-inner p-4 border-0"
                       type="tel"
-                      name="phone"
+                      name="mobile"
                       placeholder="+91 9986235642"
+                      onChange={handleChange}
                     />
                   </div>
                   <div class="mb-4">
@@ -83,6 +114,7 @@ const ListProperty = () => {
                       type="email"
                       name="email"
                       placeholder="contact@gmail.com"
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -102,7 +134,9 @@ const ListProperty = () => {
                       <div class="w-full flex">
                         <select
                           id="list_for"
+                          name="list_for"
                           class="block w-full px-4 py-3 text-base text-gray-900 border border-gray-300focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          onChange={handleChange}
                         >
                           <option selected>Select</option>
                           <option value="sell">Sell</option>
@@ -129,8 +163,9 @@ const ListProperty = () => {
                         <input
                           class="flex-1 shadow-inner p-4 border-0"
                           type="text"
-                          name="plot_area"
+                          name="plotarea"
                           placeholder="1000 sq.ft."
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -144,6 +179,7 @@ const ListProperty = () => {
                           type="text"
                           name="bedrooms"
                           placeholder="2"
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -159,6 +195,7 @@ const ListProperty = () => {
                           type="text"
                           name="hall"
                           placeholder="1"
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -172,6 +209,7 @@ const ListProperty = () => {
                           type="text"
                           name="kitchen"
                           placeholder="1"
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -190,6 +228,7 @@ const ListProperty = () => {
                     type="text"
                     name="price"
                     placeholder="₹85 Lakhs OR ₹10000/month"
+                    onChange={handleChange}
                   ></input>
                 </div>
               </div>
@@ -201,9 +240,11 @@ const ListProperty = () => {
                 </div>
                 <div class="md:flex-1 mb:mt-0 md:px-3">
                   <textarea
+                    name="description"
                     class="w-full shadow-inner p-4 border-0"
                     placeholder="Description and other Facilities"
                     rows="6"
+                    onChange={handleChange}
                   ></textarea>
                 </div>
               </div>
@@ -218,7 +259,9 @@ const ListProperty = () => {
                     <input
                       class="opacity-0 absolute cursor-pointer"
                       type="file"
-                      name="cover_image"
+                      name="images"
+                      onChange={handleChange}
+                      multiple
                     />
                     Add Images
                   </div>
@@ -231,6 +274,7 @@ const ListProperty = () => {
                     class="inline-block mt-6 rounded shadow py-2 px-4 no-underline border-0 text-gray-50 hover:bg-red-700 cursor-pointer bg-red-500"
                     type="submit"
                     value="List Property"
+                    onClick={handleSubmit}
                   />
                 </div>
               </div>
