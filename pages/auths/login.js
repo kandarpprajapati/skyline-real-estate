@@ -2,24 +2,24 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-      <div class="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
-        <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+    <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+      <div className="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+        <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           {/* <div>
             <img
               src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
-              class="w-32 mx-auto"
+              className="w-32 mx-auto"
             />
           </div> */}
-          <div class="flex flex-col items-center">
-            <h1 class="text-2xl xl:text-3xl font-extrabold">
+          <div className="flex flex-col items-center">
+            <h1 className="text-2xl xl:text-3xl font-extrabold">
               Sign In for Skyline
             </h1>
-            <div class="w-full flex-1 mt-8">
-              <div class="flex flex-col items-center">
-                <button class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
-                  <div class="bg-white p-2 rounded-full">
-                    <svg class="w-4" viewBox="0 0 533.5 544.3">
+            <div className="w-full flex-1 mt-8">
+              <div className="flex flex-col items-center">
+                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                  <div className="bg-white p-2 rounded-full">
+                    <svg className="w-4" viewBox="0 0 533.5 544.3">
                       <path
                         d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z"
                         fill="#4285f4"
@@ -38,42 +38,42 @@ const Login = () => {
                       />
                     </svg>
                   </div>  
-                  <span class="ml-4">Sign In with Google</span>
+                  <span className="ml-4">Sign In with Google</span>
                 </button>
 
-                {/* <button class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
-                  <div class="bg-white p-1 rounded-full">
-                    <svg class="w-6" viewBox="0 0 32 32">
+                {/* <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
+                  <div className="bg-white p-1 rounded-full">
+                    <svg className="w-6" viewBox="0 0 32 32">
                       <path
                         fill-rule="evenodd"
                         d="M16 4C9.371 4 4 9.371 4 16c0 5.3 3.438 9.8 8.207 11.387.602.11.82-.258.82-.578 0-.286-.011-1.04-.015-2.04-3.34.723-4.043-1.609-4.043-1.609-.547-1.387-1.332-1.758-1.332-1.758-1.09-.742.082-.726.082-.726 1.203.086 1.836 1.234 1.836 1.234 1.07 1.836 2.808 1.305 3.492 1 .11-.777.422-1.305.762-1.605-2.664-.301-5.465-1.332-5.465-5.93 0-1.313.469-2.383 1.234-3.223-.121-.3-.535-1.523.117-3.175 0 0 1.008-.32 3.301 1.23A11.487 11.487 0 0116 9.805c1.02.004 2.047.136 3.004.402 2.293-1.55 3.297-1.23 3.297-1.23.656 1.652.246 2.875.12 3.175.77.84 1.231 1.91 1.231 3.223 0 4.61-2.804 5.621-5.476 5.922.43.367.812 1.101.812 2.219 0 1.605-.011 2.898-.011 3.293 0 .32.214.695.824.578C24.566 25.797 28 21.3 28 16c0-6.629-5.371-12-12-12z"
                       />
                     </svg>
                   </div>
-                  <span class="ml-4">Sign Up with GitHub</span>
+                  <span className="ml-4">Sign Up with GitHub</span>
                 </button> */}
               </div>
 
-              <div class="my-12 border-b text-center">
-                <div class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
+              <div className="my-12 border-b text-center">
+                <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                   Or sign in with e-mail
                 </div>
               </div>
 
-              <div class="mx-auto max-w-xs">
+              <div className="mx-auto max-w-xs">
                 <input
-                  class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
                   placeholder="Email"
                 />
                 <input
-                  class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password"
                   placeholder="Password"
                 />
-                <button class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                   <svg
-                    class="w-6 h-6 -ml-2"
+                    className="w-6 h-6 -ml-2"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
@@ -84,15 +84,15 @@ const Login = () => {
                     <circle cx="8.5" cy="7" r="4" />
                     <path d="M20 8v6M23 11h-6" />
                   </svg>
-                  <span class="ml-3">Sign In</span>
+                  <span className="ml-3">Sign In</span>
                 </button>
-                <p class="mt-6 text-xs text-gray-600 text-center">
+                <p className="mt-6 text-xs text-gray-600 text-center">
                   I agree to abide by templatana's
-                  <a href="#" class="border-b border-gray-500 border-dotted">
+                  <a href="#" className="border-b border-gray-500 border-dotted">
                     Terms of Service
                   </a>
                   and its
-                  <a href="#" class="border-b border-gray-500 border-dotted">
+                  <a href="#" className="border-b border-gray-500 border-dotted">
                     Privacy Policy
                   </a>
                 </p>
@@ -100,20 +100,20 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <div class="flex-1 bg-indigo-100 text-center hidden lg:flex">
+        <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
           <div
-            class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+            className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
           ></div>
         </div>
       </div>
       <div
-        class="REMOVE-THIS-ELEMENT-IF-YOU-ARE-USING-THIS-PAGE hidden treact-popup fixed inset-0 flex items-center justify-center"
+        className="REMOVE-THIS-ELEMENT-IF-YOU-ARE-USING-THIS-PAGE hidden treact-popup fixed inset-0 flex items-center justify-center"
       >
-        <div class="max-w-lg p-8 sm:pb-4 bg-white rounded shadow-lg text-center sm:text-left">
-          <h3 class="text-xl sm:text-2xl font-semibold mb-6 flex flex-col sm:flex-row items-center">
-            <div class="bg-green-200 p-2 rounded-full flex items-center mb-4 sm:mb-0 sm:mr-2">
+        <div className="max-w-lg p-8 sm:pb-4 bg-white rounded shadow-lg text-center sm:text-left">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-6 flex flex-col sm:flex-row items-center">
+            <div className="bg-green-200 p-2 rounded-full flex items-center mb-4 sm:mb-0 sm:mr-2">
               <svg
-                class="text-green-800 inline-block w-5 h-5"
+                className="text-green-800 inline-block w-5 h-5"
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -127,19 +127,19 @@ const Login = () => {
             Free TailwindCSS Component Kit!
           </h3>
           <p>
-            I recently released Treact, a <span class="font-bold">free</span>{" "}
+            I recently released Treact, a <span className="font-bold">free</span>{" "}
             TailwindCSS Component Kit built with React.
           </p>
-          <p class="mt-2">
+          <p className="mt-2">
             It has 52 different UI components, 7 landing pages, and 8 inner
             pages prebuilt. And they are customizable!
           </p>
-          <div class="mt-8 pt-8 sm:pt-4 border-t -mx-8 px-8 flex flex-col sm:flex-row justify-end leading-relaxed">
-            <button class="close-treact-popup px-8 py-3 sm:py-2 rounded border border-gray-400 hover:bg-gray-200 transition duration-300">
+          <div className="mt-8 pt-8 sm:pt-4 border-t -mx-8 px-8 flex flex-col sm:flex-row justify-end leading-relaxed">
+            <button className="close-treact-popup px-8 py-3 sm:py-2 rounded border border-gray-400 hover:bg-gray-200 transition duration-300">
               Close
             </button>
             <a
-              class="font-bold mt-4 sm:mt-0 sm:ml-4 px-8 py-3 sm:py-2 rounded bg-purple-700 text-gray-100 hover:bg-purple-900 transition duration-300 text-center"
+              className="font-bold mt-4 sm:mt-0 sm:ml-4 px-8 py-3 sm:py-2 rounded bg-purple-700 text-gray-100 hover:bg-purple-900 transition duration-300 text-center"
               href="https://treact.owaiskhan.me"
               target="_blank"
             >

@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <>
       {/* This example requires Tailwind CSS v2.0+ */}
-      <div className="relative bg-white w-full ">
+      <nav className="relative bg-white w-full">
         <div className="mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
             <div className="flex lg:w-0 lg:flex-1 mx-8">
@@ -565,15 +565,15 @@ const NavBar = () => {
           </div>
         </div>
         {/*
-    Mobile menu, show/hide based on mobile menu state.
+            Mobile menu, show/hide based on mobile menu state.
 
-    Entering: "duration-200 ease-out"
-      From: ""
-      To: ""
-    Leaving: "duration-100 ease-in"
-      From: "opacity-100 scale-100"
-      To: "opacity-0 scale-95"
-  */}
+            Entering: "duration-200 ease-out"
+              From: ""
+              To: ""
+            Leaving: "duration-100 ease-in"
+              From: "opacity-100 scale-100"
+              To: "opacity-0 scale-95"
+        */}
 
         <div
           className={
@@ -811,7 +811,7 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };
