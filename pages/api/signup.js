@@ -1,11 +1,13 @@
 import User from '../../models/User';
 import connectDB from '../../middleware/mongoose';
+var CryptoJS = require("crypto-js");
 
 const handler = async (req, res) => {
     if(req.method=="POST") {
         console.log(req.body);
 
-        let user = new User(req.body);
+        const {name, email} = req.body;
+        let user = new User({name, email,password: CryptoJS.AES.encrypt(req.body.password,"skylineKHJY").toString()});
         await user.save();
 
         res.status(200).json({success: true});
