@@ -32,7 +32,9 @@ const Login = () => {
     if (response.success) {
       setEmail("");
       setPassword("");
-      router.push("/");
+
+      localStorage.setItem("token", response.token);
+      
       toast.success("Login Successful !!", {
         position: "top-center",
         autoClose: 4000,
@@ -43,6 +45,11 @@ const Login = () => {
         progress: undefined,
         theme: "dark",
       });
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+      
     }
     else{
       toast.error(response.error, {
@@ -124,7 +131,7 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div className="mx-auto max-w-xs">
+                <form className="mx-auto max-w-xs" onSubmit={handleSubmit}>
                   <input
                     value={email}
                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -141,8 +148,7 @@ const Login = () => {
                     name="password"
                     placeholder="Password"
                     onChange={handleChange} />
-                  <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                    onClick={handleSubmit}>
+                  <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     <svg
                       className="w-6 h-6 -ml-2"
                       fill="none"
@@ -173,7 +179,7 @@ const Login = () => {
                       Privacy Policy
                     </a>
                   </p>
-                </div>
+                </form>
               </div>
             </div>
           </div>

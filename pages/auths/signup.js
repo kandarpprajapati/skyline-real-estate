@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useRouter} from "next/router";
 
 const Signup = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +45,10 @@ const Signup = () => {
       progress: undefined,
       theme: "dark",
       });
+
+      setTimeout(() => {
+        router.push("/auths/login");
+      }, 1000);
   };
 
   return (
@@ -61,7 +68,7 @@ const Signup = () => {
           <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             {/* <div>
       <img
-        src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
+        src="https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         className="w-32 mx-auto"
       />
     </div> */}

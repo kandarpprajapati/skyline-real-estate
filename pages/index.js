@@ -28,7 +28,7 @@ export default function Home() {
             </svg>
             <img
               className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src="https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt=""
             />
           </div>
@@ -763,270 +763,9 @@ export default function Home() {
         </section>
         {/* About Section */}
 
-        {/* Property Section */}
-        <div className="bg-slate-100 w-full py-10 overflow-hidden">
-          <div className="text-3xl font-semibold text-center">
-            Best Property Listings
-          </div>
-          <div className="flex -mx-4 justify-center pt-6">
-            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-              <a
-                href=""
-                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
-              >
-                <div className="relative pb-48 overflow-hidden">
-                  <img
-                    className="absolute inset-0 h-full w-full object-cover"
-                    src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="p-4">
-                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-                    For Rent
-                  </span>
-                  <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
-                  <p className="text-sm">
-                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                    Donec ullamcorper nulla non metus auctor fringilla.
-                  </p>
-                  <div className="mt-3 flex items-center">
-                    <span className="text-lg font-semibold">₹</span>&nbsp;
-                    <span className="font-bold text-xl">4500</span>&nbsp;
-                    <span className="text-sm font-semibold">/month</span>
-                  </div>
-                </div>
-                <div className="p-4 border-t border-b text-xs text-gray-700">
-                  <span className="flex items-center mb-1">
-                    <i className="far fa-clock fa-fw mr-2"></i>
-                    <div className="text-sm text-black font-medium">
-                      {" "}
-                      3 Bedrooms , 2 Bathrooms, 1 Hall & 1 Garage
-                    </div>
-                  </span>
-                  <span className="flex items-center">
-                    <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
-                    <div className="text-lg">By</div>
-                    <div className="text-lg mx-1 font-semibold text-black">
-                      Kandarp
-                    </div>
-                  </span>
-                </div>
-                <div className="p-4 flex items-center text-sm text-gray-600">
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-gray-400"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <span className="ml-2">4.3 Ratings</span>
-                </div>
-              </a>
-            </div>
-            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-              <a
-                href=""
-                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
-              >
-                <div className="relative pb-48 overflow-hidden">
-                  <img
-                    className="absolute inset-0 h-full w-full object-cover"
-                    src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="p-4">
-                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-                    For Sell
-                  </span>
-                  <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
-                  <p className="text-sm">
-                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                    Donec ullamcorper nulla non metus auctor fringilla.
-                  </p>
-                  <div className="mt-3 flex items-center">
-                    <span className="text-lg font-semibold">₹</span>&nbsp;
-                    <span className="font-bold text-xl">45 Lakhs</span>&nbsp;
-                    {/* <span className="text-sm font-semibold">/month</span> */}
-                  </div>
-                </div>
-                <div className="p-4 border-t border-b text-xs text-gray-700">
-                  <span className="flex items-center mb-1">
-                    <i className="far fa-clock fa-fw mr-2"></i>
-                    <div className="text-sm text-black font-medium">
-                      {" "}
-                      2 Bedrooms, 1 Kitchen, 2 Hall{" "}
-                    </div>
-                  </span>
-                  <span className="flex items-center">
-                    <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
-                    <div className="text-lg">By</div>
-                    <div className="text-lg mx-1 font-semibold text-black">
-                      Hardik
-                    </div>
-                  </span>
-                </div>
-                <div className="p-4 flex items-center text-sm text-gray-600">
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-gray-400"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <span className="ml-2">4.3 Ratings</span>
-                </div>
-              </a>
-            </div>
-            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-              <a
-                href=""
-                className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
-              >
-                <div className="relative pb-48 overflow-hidden">
-                  <img
-                    className="absolute inset-0 h-full w-full object-cover"
-                    src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="p-4">
-                  <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-                    For Rent
-                  </span>
-                  <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
-                  <p className="text-sm">
-                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                    Donec ullamcorper nulla non metus auctor fringilla.
-                  </p>
-                  <div className="mt-3 flex items-center">
-                    <span className="text-lg font-semibold">₹</span>&nbsp;
-                    <span className="font-bold text-xl">10500</span>&nbsp;
-                    <span className="text-sm font-semibold">/month</span>
-                  </div>
-                </div>
-                <div className="p-4 border-t border-b text-xs text-gray-700">
-                  <span className="flex items-center mb-1">
-                    <i className="far fa-clock fa-fw mr-2"></i>
-                    <div className="text-sm text-black font-medium">
-                      {" "}
-                      4 Bedrooms, 1 Kitchen, 2 Hall & 1 Garage
-                    </div>
-                  </span>
-                  <span className="flex items-center">
-                    <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
-                    <div className="text-lg">By</div>
-                    <div className="text-lg mx-1 font-semibold text-black">
-                      xyz
-                    </div>
-                  </span>
-                </div>
-                <div className="p-4 flex items-center text-sm text-gray-600">
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-yellow-500"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 fill-current text-gray-400"
-                  >
-                    <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-                  </svg>
-                  <span className="ml-2">4.3 Ratings</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
-            <a href="">See More {">>"}</a>
-          </div>
-        </div>
-        {/* Property Section */}
 
         {/* Property 2 Section */}
-        <div className="w-full py-10 overflow-hidden">
+        <div className="bg-slate-100 w-full py-10 overflow-hidden">
           <div className="text-3xl font-semibold text-center">
             Properties
           </div>
@@ -1334,7 +1073,7 @@ export default function Home() {
 
 
         {/* Blog Section */}
-        <div className="bg-slate-100 w-full py-10 overflow-hidden">
+        <div className="w-full py-10 overflow-hidden">
           <div className="text-3xl font-semibold text-center">
             Latest Articles
           </div>
@@ -1529,3 +1268,265 @@ export default function Home() {
         </div>
       </main> */
 }
+
+{/* Property Section */}
+{/* <div className="bg-slate-100 w-full py-10 overflow-hidden">
+<div className="text-3xl font-semibold text-center">
+  Best Property Listings
+</div>
+<div className="flex -mx-4 justify-center pt-6">
+  <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+    <a
+      href=""
+      className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+    >
+      <div className="relative pb-48 overflow-hidden">
+        <img
+          className="absolute inset-0 h-full w-full object-cover"
+          src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+          alt=""
+        />
+      </div>
+      <div className="p-4">
+        <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+          For Rent
+        </span>
+        <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
+        <p className="text-sm">
+          Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+          Donec ullamcorper nulla non metus auctor fringilla.
+        </p>
+        <div className="mt-3 flex items-center">
+          <span className="text-lg font-semibold">₹</span>&nbsp;
+          <span className="font-bold text-xl">4500</span>&nbsp;
+          <span className="text-sm font-semibold">/month</span>
+        </div>
+      </div>
+      <div className="p-4 border-t border-b text-xs text-gray-700">
+        <span className="flex items-center mb-1">
+          <i className="far fa-clock fa-fw mr-2"></i>
+          <div className="text-sm text-black font-medium">
+            {" "}
+            3 Bedrooms , 2 Bathrooms, 1 Hall & 1 Garage
+          </div>
+        </span>
+        <span className="flex items-center">
+          <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
+          <div className="text-lg">By</div>
+          <div className="text-lg mx-1 font-semibold text-black">
+            Kandarp
+          </div>
+        </span>
+      </div>
+      <div className="p-4 flex items-center text-sm text-gray-600">
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 fill-current text-yellow-500"
+        >
+          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+        </svg>
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 fill-current text-yellow-500"
+        >
+          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+        </svg>
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 fill-current text-yellow-500"
+        >
+          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+        </svg>
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 fill-current text-yellow-500"
+        >
+          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+        </svg>
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 fill-current text-gray-400"
+        >
+          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+        </svg>
+        <span className="ml-2">4.3 Ratings</span>
+      </div>
+    </a>
+  </div>
+  <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+    <a
+      href=""
+      className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+    >
+      <div className="relative pb-48 overflow-hidden">
+        <img
+          className="absolute inset-0 h-full w-full object-cover"
+          src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+          alt=""
+        />
+      </div>
+      <div className="p-4">
+        <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+          For Sell
+        </span>
+        <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
+        <p className="text-sm">
+          Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+          Donec ullamcorper nulla non metus auctor fringilla.
+        </p>
+        <div className="mt-3 flex items-center">
+          <span className="text-lg font-semibold">₹</span>&nbsp;
+          <span className="font-bold text-xl">45 Lakhs</span>&nbsp;
+          {/* <span className="text-sm font-semibold">/month</span> */}
+//         </div>
+//       </div>
+//       <div className="p-4 border-t border-b text-xs text-gray-700">
+//         <span className="flex items-center mb-1">
+//           <i className="far fa-clock fa-fw mr-2"></i>
+//           <div className="text-sm text-black font-medium">
+//             {" "}
+//             2 Bedrooms, 1 Kitchen, 2 Hall{" "}
+//           </div>
+//         </span>
+//         <span className="flex items-center">
+//           <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
+//           <div className="text-lg">By</div>
+//           <div className="text-lg mx-1 font-semibold text-black">
+//             Hardik
+//           </div>
+//         </span>
+//       </div>
+//       <div className="p-4 flex items-center text-sm text-gray-600">
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-gray-400"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <span className="ml-2">4.3 Ratings</span>
+//       </div>
+//     </a>
+//   </div>
+//   <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+//     <a
+//       href=""
+//       className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+//     >
+//       <div className="relative pb-48 overflow-hidden">
+//         <img
+//           className="absolute inset-0 h-full w-full object-cover"
+//           src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+//           alt=""
+//         />
+//       </div>
+//       <div className="p-4">
+//         <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+//           For Rent
+//         </span>
+//         <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
+//         <p className="text-sm">
+//           Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+//           Donec ullamcorper nulla non metus auctor fringilla.
+//         </p>
+//         <div className="mt-3 flex items-center">
+//           <span className="text-lg font-semibold">₹</span>&nbsp;
+//           <span className="font-bold text-xl">10500</span>&nbsp;
+//           <span className="text-sm font-semibold">/month</span>
+//         </div>
+//       </div>
+//       <div className="p-4 border-t border-b text-xs text-gray-700">
+//         <span className="flex items-center mb-1">
+//           <i className="far fa-clock fa-fw mr-2"></i>
+//           <div className="text-sm text-black font-medium">
+//             {" "}
+//             4 Bedrooms, 1 Kitchen, 2 Hall & 1 Garage
+//           </div>
+//         </span>
+//         <span className="flex items-center">
+//           <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
+//           <div className="text-lg">By</div>
+//           <div className="text-lg mx-1 font-semibold text-black">
+//             xyz
+//           </div>
+//         </span>
+//       </div>
+//       <div className="p-4 flex items-center text-sm text-gray-600">
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-yellow-500"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <svg
+//           viewBox="0 0 24 24"
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-4 w-4 fill-current text-gray-400"
+//         >
+//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
+//         </svg>
+//         <span className="ml-2">4.3 Ratings</span>
+//       </div>
+//     </a>
+//   </div>
+// </div>
+// <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
+//   <a href="">See More {">>"}</a>
+// </div>
+// </div> */}
+{/* Property Section */}

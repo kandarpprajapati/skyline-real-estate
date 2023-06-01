@@ -1,10 +1,14 @@
+import { set } from "mongoose";
 import Link from "next/link";
 import React, { useState } from "react";
+import { FaUserCircle } from "react-icons/fa";
 
-const NavBar = () => {
+const NavBar = ({ user , logout}) => {
   const [open, setOpen] = useState(false);
   const [flyer, setFlyer] = useState(false);
   const [flyerTwo, setFlyerTwo] = useState(false);
+  const [dropDown, setDropdown] = useState(false);
+
 
   return (
     <>
@@ -49,7 +53,7 @@ const NavBar = () => {
               </button>
             </div>
             <nav className="hidden md:flex space-x-10">
-            <a
+              <a
                 href="/"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
@@ -534,14 +538,14 @@ const NavBar = () => {
                     </div>
                   </div>
                 </div>
-              </div> 
+              </div>
 
-              <a
+              <Link
                 href="/blogs"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
                 Blogs
-              </a>
+              </Link>
               <a
                 href="#"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
@@ -549,33 +553,100 @@ const NavBar = () => {
                 About
               </a>
             </nav>
-            <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-              <Link
-                href="/auths/login"
-                className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+            <div className="md:flex items-center justify-end md:flex-1 lg:w-0">
+              <a
+                onMouseOver={() => {
+                  setDropdown(true);
+                }}
+                onMouseLeave={() => {
+                  setDropdown(false);
+                }}
               >
-                Sign in
-              </Link>
-              <Link
-                href="/auths/signup"
-                className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-              >
-                Sign up
-              </Link>
+                {dropDown && (
+                  <div
+                    id="dropdownInformation"
+                    class="bg-white divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute top-14 right-5 z-10 border border-gray-300"
+                    onMouseOver={() => {
+                      setDropdown(true);
+                    }}
+                    onMouseLeave={() => {
+                      setDropdown(false);
+                    }}
+                  >
+                    <Link href="/profile">
+                      <div class="px-4 py-3 text-sm text-gray-900 hover:bg-gray-200 dark:text-white cursor-pointer">
+                        <div>Bonnie Green</div>
+                        <div class="font-medium truncate">
+                          name@flowbite.com
+                        </div>
+                      </div>
+                      <hr />
+                    </Link>
+                    <ul
+                      class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="dropdownInformationButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Dashboard
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Settings
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Earnings
+                        </a>
+                      </li>
+                    </ul>
+                    
+                    <div class="py-2">
+                    <hr />
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        onClick={logout}
+                      >
+                        Sign out
+                      </a>
+                    </div>
+                  </div>
+                )}
+                {user.value && (
+                  <FaUserCircle className="text-3xl md:text-3xl mx-2 cursor-pointer" />
+                )}
+              </a>
+              {!user.value && (
+                <Link
+                  href="/auths/login"
+                  className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Sign in
+                </Link>
+              )}
+              {!user.value && (
+                <Link
+                  href="/auths/signup"
+                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                >
+                  Sign up
+                </Link>
+              )}
             </div>
           </div>
         </div>
-        {/*
-            Mobile menu, show/hide based on mobile menu state.
-
-            Entering: "duration-200 ease-out"
-              From: ""
-              To: ""
-            Leaving: "duration-100 ease-in"
-              From: "opacity-100 scale-100"
-              To: "opacity-0 scale-95"
-        */}
-
         <div
           className={
             open
