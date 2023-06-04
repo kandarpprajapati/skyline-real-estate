@@ -561,7 +561,7 @@ const NavBar = ({ user , logout}) => {
                 {dropDown && (
                   <div
                     id="dropdownInformation"
-                    class="bg-white divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute top-14 right-5 z-10 border border-gray-300"
+                    class="bg-white divide-gray-100 rounded-lg shadow w-64 dark:bg-gray-700 dark:divide-gray-600 absolute top-14 right-5 z-10 border border-gray-300"
                     onMouseOver={() => {
                       setDropdown(true);
                     }}
@@ -570,7 +570,7 @@ const NavBar = ({ user , logout}) => {
                     }}
                   >
                     <Link href="/profile">
-                      <div class="px-4 py-3 text-sm text-gray-900 hover:bg-gray-200 dark:text-white cursor-pointer">
+                      <div class="px-4 py-3 text-sm text-gray-900 dark:text-white cursor-default">
                         <div>Kandarp Prajapati</div>
                         <div class="font-medium truncate">
                           kandarpop@gmail.com
@@ -587,7 +587,7 @@ const NavBar = ({ user , logout}) => {
                           href="#"
                           class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
-                          Dashboard
+                          My Account
                         </a>
                       </li>
                       <li>
@@ -595,7 +595,7 @@ const NavBar = ({ user , logout}) => {
                           href="#"
                           class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
-                          Settings
+                          Listed Properties
                         </a>
                       </li>
                       <li>
@@ -603,7 +603,7 @@ const NavBar = ({ user , logout}) => {
                           href="#"
                           class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
-                          Earnings
+                          History
                         </a>
                       </li>
                     </ul>

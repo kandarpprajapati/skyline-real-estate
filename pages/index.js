@@ -3,8 +3,13 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
+import { useRouter } from "next/router";
+import { useRef } from "react";
 
 export default function Home() {
+  const router = useRouter();
+  const ref = useRef(null);
+
   return (
     <>
       <Head>
@@ -40,7 +45,7 @@ export default function Home() {
               <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Everything you
                 <br className="hidden md:block" />
-                can imagine{" "}
+                can imagine
                 <span className="inline-block text-deep-purple-accent-400">
                   is real
                 </span>
@@ -51,19 +56,22 @@ export default function Home() {
                 quae. explicabo.
               </p>
               <div className="flex items-center">
-                <a
-                  href="/"
-                  className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-500 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                <div
+                  className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-500 hover:bg-red-700 focus:shadow-outline focus:outline-none cursor-pointer"
+                  onClick={() => {
+                    ref.current?.scrollIntoView({ behavior: "smooth" });
+                    // router.push("#propertySec");
+                  }}
                 >
                   Get started
-                </a>
-                <a
+                </div>
+                {/* <a
                   href="/"
                   aria-label=""
                   className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
                 >
                   Learn more
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -737,7 +745,7 @@ export default function Home() {
                     About Us
                   </span>
                   <h2 className="text-dark mb-8 text-3xl font-bold sm:text-4xl">
-                    Make your customers happy by giving services.
+                    Making our customers happy by giving services.
                   </h2>
                   <p className="text-body-color mb-8 text-base">
                     It is a long established fact that a reader will be
@@ -763,12 +771,13 @@ export default function Home() {
         </section>
         {/* About Section */}
 
-
         {/* Property 2 Section */}
-        <div className="bg-slate-100 w-full py-10 overflow-hidden">
-          <div className="text-3xl font-semibold text-center">
-            Properties
-          </div>
+        <div
+          id="propertySec"
+          ref={ref}
+          className="bg-slate-100 w-full py-10 overflow-hidden"
+        >
+          <div className="text-3xl font-semibold text-center">Properties</div>
           <div className="flex -mx-4 justify-center pt-6">
             <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
               <a
@@ -1068,9 +1077,11 @@ export default function Home() {
               </a>
             </div>
           </div>
+          <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
+            <Link href="/property/buyproperty">See More {">>"}</Link>
+          </div>
         </div>
         {/* Property 2 Section */}
-
 
         {/* Blog Section */}
         <div className="w-full py-10 overflow-hidden">
@@ -1094,13 +1105,15 @@ export default function Home() {
                   <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
                     category
                   </span>
-                  <h2 className="mt-2 mb-2  font-bold">This is the very First Blog.</h2>
+                  <h2 className="mt-2 mb-2  font-bold">
+                    This is the very First Blog.
+                  </h2>
                   <p className="text-sm">
                     Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                     Donec ullamcorper nulla non metus auctor fringilla.
                   </p>
                   <div className="mt-3 flex items-center">
-                    <span className="font-bold text-lg">Read {'>>'}</span>
+                    <span className="font-bold text-lg">Read {">>"}</span>
                   </div>
                 </div>
               </a>
@@ -1121,13 +1134,15 @@ export default function Home() {
                   <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
                     category
                   </span>
-                  <h2 className="mt-2 mb-2  font-bold">This is the very First Blog.</h2>
+                  <h2 className="mt-2 mb-2  font-bold">
+                    This is the very First Blog.
+                  </h2>
                   <p className="text-sm">
                     Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                     Donec ullamcorper nulla non metus auctor fringilla.
                   </p>
                   <div className="mt-3 flex items-center">
-                    <span className="font-bold text-lg">Read {'>>'}</span>
+                    <span className="font-bold text-lg">Read {">>"}</span>
                   </div>
                 </div>
               </a>
@@ -1148,18 +1163,20 @@ export default function Home() {
                   <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
                     category
                   </span>
-                  <h2 className="mt-2 mb-2  font-bold">This is the very First Blog.</h2>
+                  <h2 className="mt-2 mb-2  font-bold">
+                    This is the very First Blog.
+                  </h2>
                   <p className="text-sm">
                     Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                     Donec ullamcorper nulla non metus auctor fringilla.
                   </p>
                   <div className="mt-3 flex items-center">
-                    <span className="font-bold text-lg">Read {'>>'}</span>
+                    <span className="font-bold text-lg">Read {">>"}</span>
                   </div>
                 </div>
               </a>
             </div>
-          </div>        
+          </div>
           <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
             <Link href="/blogs">See More {">>"}</Link>
           </div>
@@ -1269,8 +1286,11 @@ export default function Home() {
       </main> */
 }
 
-{/* Property Section */}
-{/* <div className="bg-slate-100 w-full py-10 overflow-hidden">
+{
+  /* Property Section */
+}
+{
+  /* <div className="bg-slate-100 w-full py-10 overflow-hidden">
 <div className="text-3xl font-semibold text-center">
   Best Property Listings
 </div>
@@ -1382,7 +1402,8 @@ export default function Home() {
         <div className="mt-3 flex items-center">
           <span className="text-lg font-semibold">₹</span>&nbsp;
           <span className="font-bold text-xl">45 Lakhs</span>&nbsp;
-          {/* <span className="text-sm font-semibold">/month</span> */}
+          {/* <span className="text-sm font-semibold">/month</span> */
+}
 //         </div>
 //       </div>
 //       <div className="p-4 border-t border-b text-xs text-gray-700">
@@ -1529,4 +1550,6 @@ export default function Home() {
 //   <a href="">See More {">>"}</a>
 // </div>
 // </div> */}
-{/* Property Section */}
+{
+  /* Property Section */
+}
