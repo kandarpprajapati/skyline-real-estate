@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useRouter} from "next/router";
@@ -9,6 +9,12 @@ const Signup = () => {
   const [password, setPassword] = useState();
 
   const router = useRouter();
+
+  useEffect(() => { 
+    if (localStorage.getItem("token")) {
+      router.push("/");
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
