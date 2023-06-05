@@ -583,12 +583,12 @@ const NavBar = ({ user , logout}) => {
                       aria-labelledby="dropdownInformationButton"
                     >
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          href="/myaccount"
                           class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           My Account
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <a

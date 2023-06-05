@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 
 const ListProperty = () => {
+
+  useEffect(() => {
+      const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`;
+      const form = document.querySelector("form");
+  }, []);
+ 
+
   const [property, setProperty] = useState({
-    p_id: "2",
+    p_id: "3",
     name: "",
     building_no: "",
     address: "",
@@ -22,6 +29,7 @@ const ListProperty = () => {
     images: "",
   });
 
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setProperty((prevState) => ({ ...prevState, [name]: value }));
@@ -30,6 +38,18 @@ const ListProperty = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(property);
+
+    const files = document.querySelector("[type=file]").files;
+    const formData = new FormData();
+
+    for (let i = 0; i < files.length; i++) {
+      let file = files[i];
+      formData.append("file", file);
+      formData.append("upload_preset", "docs_upload_example_us_preset");
+      
+    }
+
+
 
     const res = await fetch("http://localhost:3000/api/addproperty", {
       method: "POST",
