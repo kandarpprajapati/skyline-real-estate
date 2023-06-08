@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     const data = { email, password };
 
-    const res = await fetch("http://localhost:3000/api/login", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,6 +40,7 @@ const Login = () => {
       setPassword("");
 
       localStorage.setItem("token", response.token);
+      localStorage.setItem("myuser", JSON.stringify(response.token.email));
       
       toast.success("Login Successful !!", {
         position: "top-center",

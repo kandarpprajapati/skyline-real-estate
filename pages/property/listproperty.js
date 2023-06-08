@@ -12,7 +12,7 @@ const ListProperty = () => {
  
 
   const [property, setProperty] = useState({
-    p_id: "3",
+    slug: "",
     name: "",
     building_no: "",
     address: "",
@@ -50,8 +50,7 @@ const ListProperty = () => {
     }
 
 
-
-    const res = await fetch("http://localhost:3000/api/addproperty", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addproperty`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +63,7 @@ const ListProperty = () => {
 
     if (response.success) {
       setProperty({
-        p_id: "",
+        slug: "",
         name: "",
         building_no: "",
         address: "",
@@ -140,10 +139,10 @@ const ListProperty = () => {
                 <div className="md:flex-1 mb:mt-0 md:px-3">
                 <div className="mb-4 hidden">
                     <label className="block uppercase tracking-wide text-xs font-bold">
-                      Plot Id
+                      Slug
                     </label>
                     <input
-                      value={property.p_id}
+                      value={property.slug}
                       className="w-full shadow-inner p-4 border-0"
                       type="text"
                       name="p_id"

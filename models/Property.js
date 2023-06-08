@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const PropertySchema = new mongoose.Schema({
-    p_id: {type: String, required: true, unique: true},
+    slug: {type: String, required: true, unique: true},
     name: {type: String, required: true},
     building_no: {type: String, required: true},
     address: {type: String, required: true},

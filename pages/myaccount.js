@@ -16,7 +16,7 @@ const MyAccount = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("myuser"));
+    const user = localStorage.getItem("token");
     if(!user){
       router.push("/");
     }
@@ -34,7 +34,7 @@ const MyAccount = () => {
 
   const handleSubmit = async (event) => {
     let data = {token: user.token}
-    const res = await fetch("http://localhost:3000/api/getuser", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

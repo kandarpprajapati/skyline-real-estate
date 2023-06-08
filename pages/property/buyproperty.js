@@ -1,103 +1,156 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import mongoose from "mongoose";
+import Property from "../../models/Property";
 
-const properties = [
-  {
-    id: 1,
-    name: "Property 1",
-    price: "100,000",
-    image: "https://via.placeholder.com/300x200",
-  },
-  {
-    id: 2,
-    name: "Property 2",
-    price: "200,000",
-    image: "https://via.placeholder.com/300x200",
-  },
-  {
-    id: 3,
-    name: "Property 3",
-    price: "300,000",
-    image: "https://via.placeholder.com/300x200",
-  },
-];
-
-const BuyProperty = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(99999999);
-
-  const handleSearchQueryChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleMinPriceChange = (event) => {
-    setMinPrice(event.target.value);
-  };
-
-  const handleMaxPriceChange = (event) => {
-    setMaxPrice(event.target.value);
-  };
-
-  const filteredProperties = properties.filter(
-    (property) =>
-      property.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      parseInt(property.price.replace(",", "")) >= minPrice &&
-      parseInt(property.price.replace(",", "")) <= maxPrice
-  );
+const BuyProperty = ({property}) => {
+  useEffect(() => {
+    console.log(property);
+  }, []);
 
   return (
-    <div className="container mx-auto mb-9">
-      <h1 className="text-4xl font-bold my-8">Buy Property</h1>
-      <div className="flex flex-col md:flex-row gap-4 my-4">
-        <div className="w-full md:w-1/3">
-          <input
-            type="text"
-            placeholder="Search property name"
-            className="w-full border border-gray-300 p-2 rounded-lg"
-            value={searchQuery}
-            onChange={handleSearchQueryChange}
-          />
-        </div>
-        <div className="w-full md:w-1/3">
-          <input
-            type="number"
-            placeholder="Min Price"
-            className="w-full border border-gray-300 p-2 rounded-lg"
-            value={minPrice}
-            onChange={handleMinPriceChange}
-          />
-        </div>
-        <div className="w-full md:w-1/3">
-          <input
-            type="number"
-            placeholder="Max Price"
-            className="w-full border border-gray-300 p-2 rounded-lg"
-            value={maxPrice}
-            onChange={handleMaxPriceChange}
-          />
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {filteredProperties.map((property) => (
-          <div
-            key={property.id}
-            className="border border-gray-300 rounded-lg p-4"
-          >
-            <img
-              src={property.image}
-              alt={property.name}
-              className="w-full h-48 object-cover mb-4"
-            />
-            <h2 className="text-xl font-bold">{property.name}</h2>
-            <p className="text-gray-600 my-2">${property.price}</p>
-            <button className="bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-600">
-              View Property
-            </button>
+    <div
+          id="propertySec"
+          className="bg-slate-100 w-full py-10 overflow-hidden"
+        >
+          <div className="text-3xl font-semibold text-center">Properties</div>
+          <div className="flex -mx-4 justify-center pt-6">
+            {property.map((property) => {
+              return <div key={property} className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <Link
+                href="/property/hfdhdj"
+                class="block rounded-lg p-4 shadow-sm shadow-indigo-400 bg-slate-50"
+              >
+                <img
+                  alt="Home"
+                  src={property.image}
+                  class="h-56 w-full rounded-md object-cover"
+                />
+
+                <div class="mt-2">
+                  <div>
+                    <div className="mb-2">
+                      <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                        {property.list_for}
+                      </span>
+                      <span className="inline-block px-3 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs ml-3">
+                        Banglow
+                      </span>
+                    </div>
+                    <div className="ml-1">
+                      <div class="sr-only">Address</div>
+
+                      <div class="font-medium">{property.building_no} {property.address}</div>
+                    </div>
+                    
+                    <div className="ml-1">
+                      <div class="sr-only">Price</div>
+
+                      {property.list_for == "rent" ? (
+                        <div class="text-base text-gray-900">Rs. {property.price} / month</div>
+                      ) : (
+                        <div class="text-base text-gray-900">Rs. {property.price}</div>
+                      )}
+                    </div>
+
+                    <div className="ml-1 mt-3">
+                      <div class="sr-only">Other Facilities</div>
+
+                      <div class="text-sm font-normal">With {property.other_facilities}</div>
+                    </div>
+
+                    
+                  </div>
+
+                  <div class="mt-6 flex items-center gap-8 text-xs ml-1">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Bedroom</p>
+
+                        <p class="font-medium">{property.bedrooms} rooms</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Hall</p>
+
+                        <p class="font-medium">{property.halls} Hall</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <svg
+                        class="h-4 w-4 text-indigo-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        />
+                      </svg>
+
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Kitchen</p>
+
+                        <p class="font-medium">{property.kitchen} kitchen</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            })}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
   );
 };
 
 export default BuyProperty;
+
+export async function getStaticProps() {
+  let error = null;
+  if(!mongoose.connections[0].readyState){
+    await mongoose.connect(process.env.MONGO_URL)
+  }
+  const property = await Property.find()
+  // const property = await Property.find({}).sort({createdAt: 'desc'}).limit(3).exec()
+  return {
+    props: {property: JSON.parse(JSON.stringify(property))},
+  }
+}  
