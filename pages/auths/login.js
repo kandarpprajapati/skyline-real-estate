@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {useRouter} from "next/router";
+import jwt from "jsonwebtoken";
 
 const Login = () => {
   const router = useRouter()
@@ -40,7 +41,11 @@ const Login = () => {
       setPassword("");
 
       localStorage.setItem("token", response.token);
-      localStorage.setItem("myuser", JSON.stringify(response.token.email));
+      // var myuser = jwt.verify(response.token, 'alwaysbeKYHJ');
+      // localStorage.setItem("myuser", JSON.stringify(myuser));
+      // jwt.verify(response.token, process.env.JWT_SECRET, function(err, decoded) {
+      //   console.log(decoded.email) // bar
+      // });
       
       toast.success("Login Successful !!", {
         position: "top-center",

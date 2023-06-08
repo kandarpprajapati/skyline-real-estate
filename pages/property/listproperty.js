@@ -4,15 +4,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 
 const ListProperty = () => {
-
-  useEffect(() => {
-      const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`;
-      const form = document.querySelector("form");
-  }, []);
- 
+  // useEffect(() => {
+  //     const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`;
+  //     const form = document.querySelector("form");
+  // }, []);
 
   const [property, setProperty] = useState({
-    slug: "",
     name: "",
     building_no: "",
     address: "",
@@ -27,8 +24,8 @@ const ListProperty = () => {
     price: "",
     description: "",
     images: "",
+    slug: "jfjfjdsjjjj",
   });
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,16 +36,18 @@ const ListProperty = () => {
     event.preventDefault();
     console.log(property);
 
-    const files = document.querySelector("[type=file]").files;
-    const formData = new FormData();
+    // const files = document.querySelector("[type=file]").files;
+    // const formData = new FormData();
 
-    for (let i = 0; i < files.length; i++) {
-      let file = files[i];
-      formData.append("file", file);
-      formData.append("upload_preset", "docs_upload_example_us_preset");
-      
-    }
+    // for (let i = 0; i < files.length; i++) {
+    //   let file = files[i];
+    //   formData.append("file", file);
+    //   formData.append("upload_preset", "docs_upload_example_us_preset");
 
+    // }
+
+    // setProperty((prevState)=>({...prevState, slug_p : property.name.replace(/\s+/g, '-').toLowerCase()}));
+    // console.log(property.slug_p);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addproperty`, {
       method: "POST",
@@ -63,7 +62,6 @@ const ListProperty = () => {
 
     if (response.success) {
       setProperty({
-        slug: "",
         name: "",
         building_no: "",
         address: "",
@@ -78,6 +76,7 @@ const ListProperty = () => {
         price: "",
         description: "",
         images: "",
+        slug: "",
       });
       toast.success("Your property has been added !!", {
         position: "top-center",
@@ -137,19 +136,6 @@ const ListProperty = () => {
                   </legend>
                 </div>
                 <div className="md:flex-1 mb:mt-0 md:px-3">
-                <div className="mb-4 hidden">
-                    <label className="block uppercase tracking-wide text-xs font-bold">
-                      Slug
-                    </label>
-                    <input
-                      value={property.slug}
-                      className="w-full shadow-inner p-4 border-0"
-                      type="text"
-                      name="p_id"
-                      placeholder="1"
-                      onChange={handleChange}
-                    />
-                  </div>
                   <div className="mb-4">
                     <label className="block uppercase tracking-wide text-xs font-bold">
                       Name
@@ -380,6 +366,20 @@ const ListProperty = () => {
                     onChange={handleChange}
                   ></textarea>
                 </div>
+              </div>
+              <div className="mb-4 hidden">
+                <label className="block uppercase tracking-wide text-xs font-bold">
+                  slug
+                </label>
+                <input
+                  value={property.slug}
+                  // value="dsjfdjfd"
+                  className="w-full shadow-inner p-4 border-0"
+                  type="text"
+                  name="p_id"
+                  placeholder="1"
+                  onChange={handleChange}
+                />
               </div>
               <div className="md:flex mb-6">
                 <div className="md:w-1/3">

@@ -16,18 +16,18 @@ const BuyProperty = ({property}) => {
           <div className="text-3xl font-semibold text-center">Properties</div>
           <div className="flex -mx-4 justify-center pt-6">
             {property.map((property) => {
-              return <div key={property} className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              return <div key={property.slug} className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
               <Link
-                href="/property/hfdhdj"
-                class="block rounded-lg p-4 shadow-sm shadow-indigo-400 bg-slate-50"
+                href={`/property/${property.slug}`}
+                className="block rounded-lg p-4 shadow-sm shadow-indigo-400 bg-slate-50"
               >
                 <img
                   alt="Home"
                   src={property.image}
-                  class="h-56 w-full rounded-md object-cover"
+                  className="h-56 w-full rounded-md object-cover"
                 />
 
-                <div class="mt-2">
+                <div className="mt-2">
                   <div>
                     <div className="mb-2">
                       <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
@@ -38,34 +38,34 @@ const BuyProperty = ({property}) => {
                       </span>
                     </div>
                     <div className="ml-1">
-                      <div class="sr-only">Address</div>
+                      <div className="sr-only">Address</div>
 
-                      <div class="font-medium">{property.building_no} {property.address}</div>
+                      <div className="font-medium">{property.building_no} {property.address}</div>
                     </div>
                     
                     <div className="ml-1">
-                      <div class="sr-only">Price</div>
+                      <div className="sr-only">Price</div>
 
                       {property.list_for == "rent" ? (
-                        <div class="text-base text-gray-900">Rs. {property.price} / month</div>
+                        <div className="text-base text-gray-900">Rs. {property.price} / month</div>
                       ) : (
-                        <div class="text-base text-gray-900">Rs. {property.price}</div>
+                        <div className="text-base text-gray-900">Rs. {property.price}</div>
                       )}
                     </div>
 
                     <div className="ml-1 mt-3">
-                      <div class="sr-only">Other Facilities</div>
+                      <div className="sr-only">Other Facilities</div>
 
-                      <div class="text-sm font-normal">With {property.other_facilities}</div>
+                      <div className="text-sm font-normal">With {property.other_facilities}</div>
                     </div>
 
                     
                   </div>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs ml-1">
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                  <div className="mt-6 flex items-center gap-8 text-xs ml-1">
+                    <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                       <svg
-                        class="h-4 w-4 text-indigo-700"
+                        className="h-4 w-4 text-indigo-700"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -79,16 +79,16 @@ const BuyProperty = ({property}) => {
                         />
                       </svg>
 
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Bedroom</p>
+                      <div className="mt-1.5 sm:mt-0">
+                        <p className="text-gray-500">Bedroom</p>
 
-                        <p class="font-medium">{property.bedrooms} rooms</p>
+                        <p className="font-medium">{property.bedrooms} rooms</p>
                       </div>
                     </div>
 
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                    <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                       <svg
-                        class="h-4 w-4 text-indigo-700"
+                        className="h-4 w-4 text-indigo-700"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -102,16 +102,16 @@ const BuyProperty = ({property}) => {
                         />
                       </svg>
 
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Hall</p>
+                      <div className="mt-1.5 sm:mt-0">
+                        <p className="text-gray-500">Hall</p>
 
-                        <p class="font-medium">{property.halls} Hall</p>
+                        <p className="font-medium">{property.halls} Hall</p>
                       </div>
                     </div>
 
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                    <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                       <svg
-                        class="h-4 w-4 text-indigo-700"
+                        className="h-4 w-4 text-indigo-700"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -125,10 +125,10 @@ const BuyProperty = ({property}) => {
                         />
                       </svg>
 
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Kitchen</p>
+                      <div className="mt-1.5 sm:mt-0">
+                        <p className="text-gray-500">Kitchen</p>
 
-                        <p class="font-medium">{property.kitchen} kitchen</p>
+                        <p className="font-medium">{property.kitchen} kitchen</p>
                       </div>
                     </div>
                   </div>
