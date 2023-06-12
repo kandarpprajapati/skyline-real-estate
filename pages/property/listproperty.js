@@ -9,6 +9,8 @@ const ListProperty = () => {
   //     const form = document.querySelector("form");
   // }, []);
 
+  const [pimg,setPImg] = useState("");
+
   const [property, setProperty] = useState({
     name: "",
     building_no: "",
@@ -24,13 +26,38 @@ const ListProperty = () => {
     price: "",
     description: "",
     images: "",
-    slug: "jfjfjdsjjjj",
+    slug: "jfjfjdsjjjkyy",
   });
+
+  const handleImage = (event) => {
+    setPImg(event.target.files[0]);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setProperty((prevState) => ({ ...prevState, [name]: value }));
   };
+
+  const submitImage = async (event) => {
+    event.preventDefault();
+    console.log(property);
+
+    const files = document.querySelector("[type=file]").files;
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "kandarp");
+    formData.append("cloud_name", process.env.CLOUD_NAME);
+
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`,{
+        method: "POST",
+        body: formData,
+      });
+    
+    const response = await res.json();
+    console.log(response.url);
+    setProperty((prevState) => ({ ...prevState, images: response.url }));
+    console.log(property.images);
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,6 +75,8 @@ const ListProperty = () => {
 
     // setProperty((prevState)=>({...prevState, slug_p : property.name.replace(/\s+/g, '-').toLowerCase()}));
     // console.log(property.slug_p);
+
+    submitImage(event);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addproperty`, {
       method: "POST",
@@ -390,15 +419,22 @@ const ListProperty = () => {
                 <div className="md:flex-1 px-3 text-center">
                   <div className="hover:bg-gold-dark mx-auto relative inline-block mt-6 rounded shadow py-2 px-4 no-underline border-0 text-gray-50 hover:bg-red-700 bg-red-500">
                     <input
-                      value={property.images}
+                      value={pimg}
                       className="opacity-0 absolute cursor-pointer"
                       type="file"
-                      name="images"
-                      onChange={handleChange}
+                      name="pigm"
+                      onChange={handleImage}
                       multiple
                     />
                     Add Images
                   </div>
+                  <input
+                      value={property.images}
+                      className="opacity-0 absolute cursor-pointer hidden"
+                      type="text"
+                      name="images"
+                      onChange={handleChange}
+                    />
                 </div>
               </div>
               <div className="md:flex mb-6 border border-t-1 border-b-0 border-x-0 border-cream">
