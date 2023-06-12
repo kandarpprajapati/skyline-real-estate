@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 const PropertyDetails = () => {
   const router = useRouter();
   return (
-    <div>
       <>
         {/* <!-- component --> */}
         <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -185,7 +184,6 @@ const PropertyDetails = () => {
           </div>
         </section>
       </>
-    </div>
   );
 };
 

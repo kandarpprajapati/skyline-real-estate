@@ -146,7 +146,7 @@ export default BuyProperty;
 export async function getStaticProps() {
   let error = null;
   if(!mongoose.connections[0].readyState){
-    await mongoose.connect(process.env.MONGO_URL)
+    await mongoose.connect("mongodb://localhost:27017/skyline")
   }
   const property = await Property.find()
   // const property = await Property.find({}).sort({createdAt: 'desc'}).limit(3).exec()
