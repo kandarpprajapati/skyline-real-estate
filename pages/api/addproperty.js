@@ -5,8 +5,8 @@ const handler = async (req, res) => {
     if(req.method=="POST") {
         console.log(req.body);
 
-        const {p_id, name, building_no, address, email, mobile, list_for, plot_area, bedrooms, halls, kitchen, other_facilities, price, description, images, slug} = req.body;
-        let property = new Property({p_id, name, building_no, address, email, mobile, list_for, plot_area, bedrooms, halls, kitchen, other_facilities, price, description, images, slug});
+        const {name, building_no, address, email, mobile, list_for, plot_area, bedrooms, halls, kitchen, other_facilities, price, description, images, slug} = req.body;
+        let property = new Property({name, building_no, address, email, mobile, list_for, plot_area, bedrooms, halls, kitchen, other_facilities, price, description, images, slug});
         await property.save();
 
         res.status(200).json({success: true});

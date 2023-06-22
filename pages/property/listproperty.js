@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import { images } from "@/next.config";
 
 const ListProperty = () => {
   // useEffect(() => {
@@ -9,7 +10,7 @@ const ListProperty = () => {
   //     const form = document.querySelector("form");
   // }, []);
 
-  const [pimg,setPImg] = useState("");
+  // const [pimg,setPImg] = useState();
 
   const [property, setProperty] = useState({
     name: "",
@@ -26,12 +27,9 @@ const ListProperty = () => {
     price: "",
     description: "",
     images: "",
-    slug: "jfjfjdsjjjkyy",
+    slug: "",
   });
 
-  const handleImage = (event) => {
-    setPImg(event.target.files[0]);
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,43 +38,41 @@ const ListProperty = () => {
 
   const submitImage = async (event) => {
     event.preventDefault();
-    console.log(property);
+    // console.log(property);
 
     const files = document.querySelector("[type=file]").files;
     const formData = new FormData();
     formData.append("file", files[0]);
     formData.append("upload_preset", "kandarp");
-    formData.append("cloud_name", process.env.CLOUD_NAME);
+    formData.append("cloud_name", "skylinerealestate");
 
-    const res = await fetch(`https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`,{
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/skylinerealestate/image/upload`,
+      {
         method: "POST",
         body: formData,
-      });
-    
+      }
+    );
+
     const response = await res.json();
-    console.log(response.url);
-    setProperty((prevState) => ({ ...prevState, images: response.url }));
-    console.log(property.images);
-  }
+    console.log("cloudinary response 2", response);
+    property.images = response.url;
+    console.log("image set response 3", property.images);
+    // setProperty((prevState) => ({ ...prevState, images: response.public_id }));
+    // console.log("image set response 4", property.images);
+    
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(property);
-
-    // const files = document.querySelector("[type=file]").files;
-    // const formData = new FormData();
-
-    // for (let i = 0; i < files.length; i++) {
-    //   let file = files[i];
-    //   formData.append("file", file);
-    //   formData.append("upload_preset", "docs_upload_example_us_preset");
-
-    // }
-
-    // setProperty((prevState)=>({...prevState, slug_p : property.name.replace(/\s+/g, '-').toLowerCase()}));
-    // console.log(property.slug_p);
-
+    console.log("property-response 1", property);
     submitImage(event);
+
+    setProperty((prevState) => ({
+      ...prevState,
+      slug: property.name.replace(/\s+/g, "-").toLowerCase(),
+    }));
+    console.log("slug response 4", property.slug);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addproperty`, {
       method: "POST",
@@ -87,7 +83,7 @@ const ListProperty = () => {
     });
 
     const response = await res.json();
-    console.log(response);
+    console.log("add api response 5", response);
 
     if (response.success) {
       setProperty({
@@ -119,7 +115,7 @@ const ListProperty = () => {
       });
 
       // setTimeout(() => {
-      //   router.push("/auths/login");
+      //   router.push("/");
       // }, 1000);
     } else {
       toast.error(response.error, {
@@ -419,22 +415,22 @@ const ListProperty = () => {
                 <div className="md:flex-1 px-3 text-center">
                   <div className="hover:bg-gold-dark mx-auto relative inline-block mt-6 rounded shadow py-2 px-4 no-underline border-0 text-gray-50 hover:bg-red-700 bg-red-500">
                     <input
-                      value={pimg}
+                      value={property.images}
                       className="opacity-0 absolute cursor-pointer"
                       type="file"
-                      name="pigm"
-                      onChange={handleImage}
+                      name="images"
+                      onChange={handleChange}
                       multiple
                     />
                     Add Images
                   </div>
-                  <input
+                  {/* <input
                       value={property.images}
                       className="opacity-0 absolute cursor-pointer hidden"
                       type="text"
                       name="images"
                       onChange={handleChange}
-                    />
+                    /> */}
                 </div>
               </div>
               <div className="md:flex mb-6 border border-t-1 border-b-0 border-x-0 border-cream">
