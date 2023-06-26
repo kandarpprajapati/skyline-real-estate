@@ -3,27 +3,43 @@ import Link from "next/link";
 import mongoose from "mongoose";
 import Property from "../../models/Property";
 
-const BuyProperty = ({property}) => {
+const BuyProperty = ({ property }) => {
+  const [img, setImg] = useState({});
+
   useEffect(() => {
     console.log(property);
+    // while(property.images != undefined) {
+    //   setImg({ imges: property.images });
+    // }
+    // console.log({ img });
+
+    // console.log(property[0].images);
+    // fetchImage();
   }, []);
 
+  // const fetchImage = async () => {
+  //   const res = await fetch(`${property[0].images}`);
+  //   const data = await res.json();
+  //   console.log(data);
+  // };
+
   return (
-    <div
-          id="propertySec"
-          className="bg-slate-100 w-full py-10 overflow-hidden"
-        >
-          <div className="text-3xl font-semibold text-center">Properties</div>
-          <div className="flex -mx-4 justify-center pt-6">
-            {property.map((property) => {
-              return <div key={property.slug} className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+    <div id="propertySec" className="bg-slate-100 w-full py-10 overflow-hidden">
+      <div className="text-3xl font-semibold text-center">Properties</div>
+      <div className="w-full -mx-4 justify-center pt-6 flex">
+        {property.map((property) => {
+          return (
+            <div
+              key={property.slug}
+              className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"
+            >
               <Link
                 href={`/property/${property.slug}`}
                 className="block rounded-lg p-4 shadow-sm shadow-indigo-400 bg-slate-50"
               >
                 <img
                   alt="Home"
-                  src={property.image}
+                  src={img}
                   className="h-56 w-full rounded-md object-cover"
                 />
 
@@ -40,26 +56,32 @@ const BuyProperty = ({property}) => {
                     <div className="ml-1">
                       <div className="sr-only">Address</div>
 
-                      <div className="font-medium">{property.building_no} {property.address}</div>
+                      <div className="font-medium">
+                        {property.building_no} {property.address}
+                      </div>
                     </div>
-                    
+
                     <div className="ml-1">
                       <div className="sr-only">Price</div>
 
                       {property.list_for == "rent" ? (
-                        <div className="text-base text-gray-900">Rs. {property.price} / month</div>
+                        <div className="text-base text-gray-900">
+                          Rs. {property.price} / month
+                        </div>
                       ) : (
-                        <div className="text-base text-gray-900">Rs. {property.price}</div>
+                        <div className="text-base text-gray-900">
+                          Rs. {property.price}
+                        </div>
                       )}
                     </div>
 
                     <div className="ml-1 mt-3">
                       <div className="sr-only">Other Facilities</div>
 
-                      <div className="text-sm font-normal">With {property.other_facilities}</div>
+                      <div className="text-sm font-normal">
+                        With {property.other_facilities}
+                      </div>
                     </div>
-
-                    
                   </div>
 
                   <div className="mt-6 flex items-center gap-8 text-xs ml-1">
@@ -128,16 +150,19 @@ const BuyProperty = ({property}) => {
                       <div className="mt-1.5 sm:mt-0">
                         <p className="text-gray-500">Kitchen</p>
 
-                        <p className="font-medium">{property.kitchen} kitchen</p>
+                        <p className="font-medium">
+                          {property.kitchen} kitchen
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </Link>
             </div>
-            })}
-          </div>
-        </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
@@ -145,12 +170,12 @@ export default BuyProperty;
 
 export async function getStaticProps() {
   let error = null;
-  if(!mongoose.connections[0].readyState){
-    await mongoose.connect("mongodb://localhost:27017/skyline")
+  if (!mongoose.connections[0].readyState) {
+    await mongoose.connect("mongodb://localhost:27017/skyline");
   }
-  const property = await Property.find()
+  const property = await Property.find();
   // const property = await Property.find({}).sort({createdAt: 'desc'}).limit(3).exec()
   return {
-    props: {property: JSON.parse(JSON.stringify(property))},
-  }
-}  
+    props: { property: JSON.parse(JSON.stringify(property)) },
+  };
+}

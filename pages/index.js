@@ -46,8 +46,8 @@ export default function Home() {
                 Everything you
                 <br className="hidden md:block" />
                 can imagine
-                <span className="inline-block text-deep-purple-accent-400">
-                  is real
+                <span className="inline-block text-deep-purple-accent-400 ml-2">
+                is real
                 </span>
               </h2>
               <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
