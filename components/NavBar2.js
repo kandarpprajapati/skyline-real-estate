@@ -454,10 +454,10 @@ const NavBar = ({ user , logout}) => {
                         </svg>
                         <div className="ml-4">
                           <p className="text-base font-medium text-gray-900">
-                            Buy a property
+                            Purchase property
                           </p>
                           <p className="mt-1 text-sm text-gray-500">
-                            Buy a property from our platform and get the best deals.
+                            Purchase property from our platform and get the best deals.
                           </p>
                         </div>
                       </Link>

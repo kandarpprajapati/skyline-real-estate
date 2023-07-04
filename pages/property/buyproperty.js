@@ -24,6 +24,7 @@ const BuyProperty = ({ property }) => {
   // };
 
   return (
+    <>
     <div id="propertySec" className="bg-slate-100 w-full py-10 overflow-hidden">
       <div className="text-3xl font-semibold text-center">Properties</div>
       <div className="w-full -mx-4 justify-center pt-6 flex">
@@ -163,6 +164,7 @@ const BuyProperty = ({ property }) => {
         })}
       </div>
     </div>
+    </>
   );
 };
 
