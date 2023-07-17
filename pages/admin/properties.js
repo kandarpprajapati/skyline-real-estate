@@ -3,7 +3,7 @@ import FullLayout from "../../src/layouts/FullLayout";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../src/theme/theme";
 import { Grid } from "@mui/material";
-import ProductPerfomance from "../../src/components/dashboard/propertiescont";
+import PropertiesCont from "../../src/components/dashboard/propertiescont";
 import mongoose from "mongoose";
 import Property from "../../models/Property";
 import { useEffect } from "react";
@@ -28,7 +28,7 @@ const Properties = ({properties}) => {
       <FullLayout>
         <Grid container spacing={0}>
           <Grid item xs={12} lg={12}>
-            <ProductPerfomance properties={properties}/>
+            <PropertiesCont properties={properties}/>
           </Grid>
         </Grid>
       </FullLayout>
