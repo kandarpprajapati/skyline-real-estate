@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Script from "next/script";
 
-const Modal = (modalState) => {
+const Modal = (modalState, propertyy) => {
   const [stateSet, setStateSet] = useState("hidden");
+
+  console.log(propertyy);
 
   useEffect(() => {
     if (modalState) {
@@ -15,15 +19,72 @@ const Modal = (modalState) => {
     setStateSet("hidden");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted");
-  }
+    console.log(propertyy.price);
+
+    let amount="1";
+    let oid = Math.floor(Math.random() * Date.now());
+
+    //get a transaction token from the server
+    let data = { amount, oid, email:"email" };
+ 
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransaction`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    let txnToken= await a.json();
+    console.log(txnToken);
+
+    var config = {
+      root: "",
+      flow: "DEFAULT",
+      data: {
+        orderId: oid /* update order id */,
+        token: txnToken /* update token value */,
+        tokenType: "TXN_TOKEN",
+        amount: amount /* update amount */,
+      },
+      handler: {
+        notifyMerchant: function (eventName, data) {
+          console.log("notifyMerchant handler function called");
+          console.log("eventName => ", eventName);
+          console.log("data => ", data);
+        },
+      },
+    };
+
+    window.Paytm.CheckoutJS.init(config)
+      .then(function onSuccess() {
+        // after successfully updating configuration, invoke JS Checkout
+        window.Paytm.CheckoutJS.invoke();
+      })
+      .catch(function onError(error) {
+        console.log("error => ", error);
+      });
+  };
 
   return (
     <>
       {/* <!-- Main modal --> */}
       <div className={stateSet}>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+          />
+        </Head>
+        <Script
+          type="application/javascript"
+          src={`${process.env.NEXT_PUBLIC_HOST}/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_PAYTM_MID}.js`}
+          onload="onScriptLoad();"
+          crossorigin="anonymous"
+        />
         <div
           id="defaultModal"
           tabindex="-1"
@@ -69,11 +130,7 @@ const Modal = (modalState) => {
                   comply.
                 </p>
                 <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  The European Union’s General Data Protection Regulation
-                  (G.D.P.R.) goes into effect on May 25 and is meant to ensure a
-                  common set of data rights in the European Union. It requires
-                  organizations to notify users as soon as possible of high-risk
-                  data breaches that could personally affect them.
+                  and Pay Rs. {propertyy.price}
                 </p>
               </div>
               {/* <!-- Modal footer --> */}

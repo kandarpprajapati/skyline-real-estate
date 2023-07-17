@@ -36,6 +36,13 @@ const ListProperty = () => {
     setProperty((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  useEffect(() => {
+    setProperty((prevState) => ({
+      ...prevState,
+      slug: property.name.replace(/\s+/g, "-").toLowerCase(),
+    }));
+  }, [property.name]);
+
   const submitImage = async (event) => {
     event.preventDefault();
     // console.log(property);
@@ -60,19 +67,19 @@ const ListProperty = () => {
     console.log("image set response 3", property.images);
     // setProperty((prevState) => ({ ...prevState, images: response.public_id }));
     // console.log("image set response 4", property.images);
+
+    // setProperty((prevState) => ({
+    //   ...prevState,
+    //   slug: property.name.replace(/\s+/g, "-").toLowerCase(),
+    // }));
+    // console.log("slug response 4", property.slug);
     
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("property-response 1", property);
-    submitImage(event);
-
-    setProperty((prevState) => ({
-      ...prevState,
-      slug: property.name.replace(/\s+/g, "-").toLowerCase(),
-    }));
-    console.log("slug response 4", property.slug);
+    await submitImage(event);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addproperty`, {
       method: "POST",
@@ -415,7 +422,7 @@ const ListProperty = () => {
                 <div className="md:flex-1 px-3 text-center">
                   <div className="hover:bg-gold-dark mx-auto relative inline-block mt-6 rounded shadow py-2 px-4 no-underline border-0 text-gray-50 hover:bg-red-700 bg-red-500">
                     <input
-                      value={property.images}
+                      // value={property.images}
                       className="opacity-0 absolute cursor-pointer"
                       type="file"
                       name="images"

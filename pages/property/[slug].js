@@ -8,6 +8,7 @@ import Modal from "@/components/modal";
 const PropertyDetails = ({ property }) => {
 
   const [modalState, setModalState] = useState(false)
+  const [priceState, setPriceState] = useState()
 
   const router = useRouter();
 
@@ -16,12 +17,13 @@ const PropertyDetails = ({ property }) => {
   const handleBookProperty = async (e) => {
     e.preventDefault();
     setModalState(!modalState)
+    setPriceState(property.price)
   };
 
   return (
     <>
       {modalState && (
-        <Modal state={modalState}/>
+        <Modal state={modalState} propertyy={priceState}/>
       )}
       <div className="flex flex-col md:flex-row mx-auto w-full items-center justify-between">
         <div className="w-1/3 p-6 mx-auto">
@@ -148,7 +150,7 @@ const PropertyDetails = ({ property }) => {
                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
               ></path>
             </svg>
-            <p className="text-lg">Price: {property.price}</p>
+            <p className="text-lg">Price: {priceState}</p>
           </div>
           <div className="flex mb-4">
             <button
