@@ -5,18 +5,18 @@ const Contact = () => {
     <>
       {/* <!-- Contact Section: Design Block --> */}
       <hr/>
-      <section class="mb-20 text-gray-800 mt-20">
+      <section class="mb-20 text-gray-800 mt-20 mx-10">
         <div class="flex flex-wrap">
           <div class="grow-0 shrink-0 basis-auto mb-12 md:mb-0 w-full md:w-7/12 px-3 lg:px-6">
             <h2 class="text-3xl font-bold mb-6">Frequently asked questions</h2>
-            <p class="font-bold mb-2">Anim pariatur cliche reprehenderit?</p>
+            <p class="font-bold mb-2">What is skyline?</p>
             <p class="text-gray-500 mb-6">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
               autem numquam dolore molestias aperiam culpa alias veritatis
               architecto eos, molestiae vitae ex eligendi libero eveniet
               dolorem, doloremque rem aliquid perferendis.
             </p>
-            <p class="font-bold mb-2">Non cupidatat skateboard dolor brunch?</p>
+            <p class="font-bold mb-2">How does skyline work?</p>
             <p class="text-gray-500 mb-6">
               Distinctio corporis, iure facere ducimus quos consectetur ipsa ut
               magnam autem doloremque ex! Id, sequi. Voluptatum magnam sed fugit
@@ -25,7 +25,7 @@ const Contact = () => {
               libero repellendus cupiditate mollitia quidem dolorem odit
             </p>
             <p class="font-bold mb-2">
-              Praesentium voluptatibus temporibus consequatur non aspernatur?
+              What is the possibility about sell property?
             </p>
             <p class="text-gray-500 mb-6">
               Minima sunt at nulla tenetur, numquam unde quod modi magnam ab
@@ -34,7 +34,7 @@ const Contact = () => {
             </p>
 
             <p class="font-bold mb-2">
-              Voluptatum magnam sed fugit iusto minus et suscipit?
+              What is the ratings of our company?
             </p>
             <p class="text-gray-500">
               Laudantium perferendis, est alias iure ut veniam suscipit dolorem
