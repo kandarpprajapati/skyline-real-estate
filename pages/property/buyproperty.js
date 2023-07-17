@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import Property from "../../models/Property";
 
 const BuyProperty = ({ property }) => {
-  const [img, setImg] = useState({});
+  // const [img, setImg] = useState({});
 
   useEffect(() => {
     console.log(property);
@@ -17,17 +17,11 @@ const BuyProperty = ({ property }) => {
     // fetchImage();
   }, []);
 
-  // const fetchImage = async () => {
-  //   const res = await fetch(`${property[0].images}`);
-  //   const data = await res.json();
-  //   console.log(data);
-  // };
-
   return (
     <>
     <div id="propertySec" className="bg-slate-100 w-full py-10 overflow-hidden">
       <div className="text-3xl font-semibold text-center">Properties</div>
-      <div className="w-full -mx-4 justify-center pt-6 flex">
+      <div className="w-full justify-center pt-6 flex flex-wrap gap-x-5">
         {property.map((property) => {
           return (
             <div
@@ -40,7 +34,7 @@ const BuyProperty = ({ property }) => {
               >
                 <img
                   alt="Home"
-                  src={img}
+                  src={property.images}
                   className="h-56 w-full rounded-md object-cover"
                 />
 
@@ -55,31 +49,34 @@ const BuyProperty = ({ property }) => {
                       </span>
                     </div>
                     <div className="ml-1">
+                      <div className="font-medium">{property.name}</div>
+                    </div>
+                    <div className="ml-1">
                       <div className="sr-only">Address</div>
 
-                      <div className="font-medium">
+                      <div className="font-medium text-gray-600">
                         {property.building_no} {property.address}
                       </div>
                     </div>
 
-                    <div className="ml-1">
+                    <div className="ml-1 mt-2">
                       <div className="sr-only">Price</div>
 
                       {property.list_for == "rent" ? (
-                        <div className="text-base text-gray-900">
+                        <div className="text-base text-gray-700 font-semibold">
                           Rs. {property.price} / month
                         </div>
                       ) : (
-                        <div className="text-base text-gray-900">
+                        <div className="text-base text-gray-700 font-semibold">
                           Rs. {property.price}
                         </div>
                       )}
                     </div>
 
-                    <div className="ml-1 mt-3">
+                    <div className="ml-1 mt-2">
                       <div className="sr-only">Other Facilities</div>
 
-                      <div className="text-sm font-normal">
+                      <div className="text-sm font-semibold text-gray-500">
                         With {property.other_facilities}
                       </div>
                     </div>
