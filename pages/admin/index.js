@@ -11,6 +11,14 @@ import theme from "../../src/theme/theme";
 const AdminDashboard = () => {
   return (
     <>
+      <style jsx global>{`
+        nav{
+          display: none;
+        }
+        footer {
+          display: none;
+        }
+      `}</style>
       <ThemeProvider theme={theme}>
         <FullLayout>
           <Grid container spacing={0}>

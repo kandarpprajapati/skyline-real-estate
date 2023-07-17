@@ -2,42 +2,32 @@ const Menuitems = [
   {
     title: "Dashbaord",
     icon: "home",
-    href: "/",
+    href: "/admin",
   },
   {
-    title: "Buttons",
+    title: "Properties",
+    icon: "archive",
+    href: "/admin/properties",
+  },
+  {
+    title: "Add User",
     icon: "disc",
-    href: "/buttons",
+    href: "/admin/adduser",
   },
   {
-    title: "Forms",
+    title: "View Users",
     icon: "layout",
-    href: "/forms",
+    href: "/admin/allusers",
   },
   {
-    title: "Alerts",
-    icon: "info",
-    href: "/alerts",
+    title: "Transactions",
+    icon: "inbox",
+    href: "/admin/transactions",
   },
   {
-    title: "Ratings",
-    icon: "star",
-    href: "/rating",
-  },
-  {
-    title: "Images",
-    icon: "image",
-    href: "/image",
-  },
-  {
-    title: "Pagination",
-    icon: "user",
-    href: "/pagination",
-  },
-  {
-    title: "Tables",
-    icon: "grid",
-    href: "/table",
+    title: "Blogs",
+    icon: "trello",
+    href: "/admin/blogs",
   },
 ];
 

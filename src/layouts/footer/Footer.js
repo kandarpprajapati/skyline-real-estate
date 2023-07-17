@@ -5,10 +5,7 @@ const Footer = () => {
   return (
     <Box sx={{ p: 3, textAlign: "center" }}>
       <Typography>
-        © 2022 All rights reserved by{" "}
-        <Link href="https://www.wrappixel.com">
-          Wrappixel.com
-        </Link>
+        © 2023 All rights reserved by <span className="font-semibold">Sky</span><span className="text-red-500 font-bold">line</span>
       </Typography>
     </Box>
   );
