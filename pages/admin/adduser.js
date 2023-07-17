@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FullLayout from "../../src/layouts/FullLayout";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../src/theme/theme";
@@ -18,6 +18,31 @@ import {
 import BaseCard from "../../src/components/baseCard/BaseCard";
 
 const AddUser = () => {
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    const res = await fetch("http://localhost:3000/api/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+    })
+
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <>
       <style jsx global>{`
@@ -35,100 +60,37 @@ const AddUser = () => {
               <BaseCard title="Add User">
                 <Stack spacing={3}>
                   <TextField
-                    id="name-basic"
+                    value={formData.name ? formData.name : ""}
+                    name="name"
                     label="Name"
                     variant="outlined"
-                    defaultValue="Nirav Joshi"
+                    onChange={handleChange}
                   />
                   <TextField
-                    id="email-basic"
+                    value={formData.email ? formData.email : ""}
+                    name="email"
                     label="Email"
                     variant="outlined"
+                    onChange={handleChange}
                   />
                   <TextField
-                    id="pass-basic"
+                    value={formData.password ? formData.password : ""}
+                    name="password"
                     label="Password"
                     type="password"
                     variant="outlined"
+                    onChange={handleChange}
                   />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Text Area"
-                    multiline
-                    rows={4}
-                    defaultValue="Default Value"
-                  />
-                  <TextField
-                    error
-                    id="er-basic"
-                    label="Error"
-                    defaultValue="ad1avi"
-                    variant="outlined"
-                  />
-                  <FormGroup>
-                    <FormControlLabel
-                      control={<Checkbox defaultChecked />}
-                      label="Terms & Condition"
-                    />
-                    <FormControlLabel
-                      disabled
-                      control={<Checkbox />}
-                      label="Disabled"
-                    />
-                  </FormGroup>
-                  <FormControl>
-                    <FormLabel id="demo-radio-buttons-group-label">
-                      Gender
-                    </FormLabel>
-                    <RadioGroup
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      defaultValue="female"
-                      name="radio-buttons-group"
-                    >
-                      <FormControlLabel
-                        value="female"
-                        control={<Radio />}
-                        label="Female"
-                      />
-                      <FormControlLabel
-                        value="male"
-                        control={<Radio />}
-                        label="Male"
-                      />
-                      <FormControlLabel
-                        value="other"
-                        control={<Radio />}
-                        label="Other"
-                      />
-                    </RadioGroup>
-                  </FormControl>
                 </Stack>
                 <br />
-                <Button variant="contained" mt={2}>
+                <Button
+                  className="bg-blue-400 text-white hover:text-black"
+                  variant="outlined"
+                  mt={2}
+                  onClick={handleSubmit}
+                >
                   Submit
                 </Button>
-              </BaseCard>
-            </Grid>
-
-            <Grid item xs={12} lg={12}>
-              <BaseCard title="Form Design Type">
-                <Stack spacing={3} direction="row">
-                  <TextField
-                    id="outlined-basic"
-                    label="Outlined"
-                    variant="outlined"
-                  />
-                  <TextField
-                    id="filled-basic"
-                    label="Filled"
-                    variant="filled"
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="Standard"
-                    variant="standard"
-                  />
-                </Stack>
               </BaseCard>
             </Grid>
           </Grid>
