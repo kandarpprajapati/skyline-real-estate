@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import mongoose from "mongoose";
 import User from "@/models/User";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyAccount = () => {
   const [userinfo, setUserinfo] = useState({
@@ -13,7 +15,6 @@ const MyAccount = () => {
     cpassword: "",
   });
 
-  
   const [token, setToken] = useState({ value: null });
   const router = useRouter();
 
@@ -27,20 +28,14 @@ const MyAccount = () => {
     if (token1 && user) {
       setToken(token1);
       setUserinfo((prevState) => ({ ...prevState, email: user }));
-      console.log(token);
-      console.log(userinfo);
+      fetchData(token1);
+      // console.log(token);
+      // console.log(userinfo);
     }
   }, []);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUserinfo((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    let data = {token:token}
+  const fetchData = async (token) => {
+    let data = { token: token };
     console.log(data);
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
       method: "POST",
@@ -51,13 +46,140 @@ const MyAccount = () => {
     });
 
     const response = await res.json();
+    setUserinfo((prevState) => ({
+      ...prevState,
+      name: response.name,
+      mobile: response.mobile,
+      address: response.address,
+    }));
     console.log(response);
   };
 
-  const handleSubmitPassword = async (event) => {};
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserinfo((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    let data = {
+      token: token,
+      name: userinfo.name,
+      mobile: userinfo.mobile,
+      address: userinfo.address,
+    };
+    console.log(data);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateuser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const response = await res.json();
+    console.log(response);
+
+    if (response.success) {
+      toast.success("Profile Updated !!", {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      toast.error(response.error, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
+
+  const handleSubmitPassword = async (event) => {
+    event.preventDefault();
+
+    if (userinfo.npassword == userinfo.cpassword) {
+      let data = {
+        token: token,
+        npassword: userinfo.npassword,
+      };
+      console.log(data);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_HOST}/api/updatepassword`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      const response = await res.json();
+      console.log(response);
+
+      if (response.success) {
+        toast.success("Paasword Updated !!", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } else {
+        toast.error(response.error, {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    } else {
+      toast.error("Password and Confirm Password are not same !!", {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
 
   return (
     <>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="min-h-screen font-sans leading-normal overflow-x-hidden lg:overflow-auto">
         <main className="flex-1 md:p-0 lg:pt-8 lg:px-8 flex flex-col mb-8">
           <section className="p-4 shadow bg-slate-100">
