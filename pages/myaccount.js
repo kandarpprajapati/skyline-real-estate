@@ -140,6 +140,13 @@ const MyAccount = () => {
           progress: undefined,
           theme: "dark",
         });
+
+        setUserinfo((prevState) => ({
+          ...prevState,
+          npassword: "",
+          cpassword: "",
+        }));
+
       } else {
         toast.error(response.error, {
           position: "top-center",
@@ -252,7 +259,7 @@ const MyAccount = () => {
                     </label>
                     <input
                       value={userinfo.email}
-                      className="w-full shadow-inner p-4 border-0 bg-gray-50"
+                      className="w-full shadow-inner p-4 border-0 bg-gray-50 disabled:opacity-80"
                       type="email"
                       name="email"
                       placeholder="contact@gmail.com"

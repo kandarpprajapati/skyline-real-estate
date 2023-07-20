@@ -30,6 +30,42 @@ const ListProperty = () => {
     slug: "",
   });
 
+  const [token, setToken] = useState({ value: null });
+
+  useEffect(() => {
+    let token1 = localStorage.getItem("token");
+    // console.log(typeof(token1));
+    const user = localStorage.getItem("myuser");
+    if (!token1) {
+      router.push("/");
+    }
+    if (token1 && user) {
+      setToken(token1);
+      setProperty((prevState) => ({ ...prevState, email: user }));
+      fetchData(token1);
+      // console.log(token);
+      // console.log(userinfo);
+    }
+  }, []);
+
+  const fetchData = async (token) => {
+    let data = { token: token };
+    console.log(data);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const response = await res.json();
+    setProperty((prevState) => ({
+      ...prevState,
+      mobile: response.mobile,
+    }));
+    console.log(response);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -220,27 +256,29 @@ const ListProperty = () => {
                 <div className="md:flex-1 mb:mt-0 md:px-3">
                   <div className="mb-4">
                     <label className="block uppercase tracking-wide text-xs font-bold">
-                      Mobile
+                      Mobile [can't be changed]
                     </label>
                     <input
                       value={property.mobile}
-                      className="w-full shadow-inner p-4 border-0"
+                      className="w-full shadow-inner p-4 border-0 disabled:opacity-60 disabled:bg-gray-50"
                       type="tel"
                       name="mobile"
                       placeholder="+91 9986235642"
+                      disabled="disabled"
                       onChange={handleChange}
                     />
                   </div>
                   <div className="mb-4">
                     <label className="block uppercase tracking-wide text-charcoal-darker text-xs font-bold">
-                      Email
+                      Email [can't be changed]
                     </label>
                     <input
                       value={property.email}
-                      className="w-full shadow-inner p-4 border-0"
+                      className="w-full shadow-inner p-4 border-0 disabled:opacity-60 disabled:bg-gray-50"
                       type="email"
                       name="email"
                       placeholder="contact@gmail.com"
+                      disabled="disabled"
                       onChange={handleChange}
                     />
                   </div>
