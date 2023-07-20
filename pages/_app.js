@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
 
     const token = localStorage.getItem("token");
     if (token) {
-      setUser({ value: token });
+      setUser({ value: token});
       setKey(Math.random());
     }
   }, [router.query]);

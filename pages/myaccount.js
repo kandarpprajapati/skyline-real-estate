@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
+import mongoose from "mongoose";
+import User from "@/models/User";
 
 const MyAccount = () => {
   const [userinfo, setUserinfo] = useState({
@@ -7,25 +9,28 @@ const MyAccount = () => {
     address: "",
     mobile: "",
     email: "",
-    password: "",
     npassword: "",
     cpassword: "",
   });
 
-  const [user, setUser] = useState({value: null})
+  
+  const [token, setToken] = useState({ value: null });
   const router = useRouter();
 
   useEffect(() => {
-    const user = localStorage.getItem("token");
-    if(!user){
+    let token1 = localStorage.getItem("token");
+    // console.log(typeof(token1));
+    const user = localStorage.getItem("myuser");
+    if (!token1) {
       router.push("/");
     }
-    if(user && user.token){
-        setUser(user);
-        setUserinfo((prevState) => ({ ...prevState, email: user.email }));
+    if (token1 && user) {
+      setToken(token1);
+      setUserinfo((prevState) => ({ ...prevState, email: user }));
+      console.log(token);
+      console.log(userinfo);
     }
   }, []);
-  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,7 +38,10 @@ const MyAccount = () => {
   };
 
   const handleSubmit = async (event) => {
-    let data = {token: user.token}
+    event.preventDefault();
+
+    let data = {token:token}
+    console.log(data);
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
       method: "POST",
       headers: {
@@ -160,19 +168,6 @@ const MyAccount = () => {
                 <div className="md:flex-1 mb:mt-0 md:px-3">
                   <div className="mb-4">
                     <label className="block uppercase tracking-wide text-xs font-bold">
-                      Password
-                    </label>
-                    <input
-                      value={userinfo.password}
-                      className="w-full shadow-inner p-4 border-0 bg-gray-50"
-                      type="password"
-                      name="password"
-                      disabled="disabled"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block uppercase tracking-wide text-xs font-bold">
                       New Password
                     </label>
                     <input
@@ -216,3 +211,17 @@ const MyAccount = () => {
 };
 
 export default MyAccount;
+
+// export const getServerSideProps = async (context) => {
+//   let error = null;
+//   if (!mongoose.connections[0].readyState) {
+//     await mongoose.connect("mongodb://localhost:27017/skyline");
+//   }
+
+//   let u = context.req.cookies.user;
+//   let dbUser = await User.findOne({ email: u });
+//   // let dbUser = await User.find()
+//   return {
+//     props: { user: JSON.parse(JSON.stringify(dbUser)) },
+//   };
+// };

@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState();
 
   useEffect(() => { 
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("token") && localStorage.getItem("myuser")) {
       router.push("/");
     }
   }, []);
@@ -37,12 +37,12 @@ const Login = () => {
     console.log(response);
 
     if (response.success) {
+      localStorage.setItem("token", response.token);
+      localStorage.setItem("myuser", email);
+
       setEmail("");
       setPassword("");
 
-      localStorage.setItem("token", response.token);
-      // var myuser = jwt.verify(response.token, 'alwaysbeKYHJ');
-      // localStorage.setItem("myuser", JSON.stringify(myuser));
       // jwt.verify(response.token, process.env.JWT_SECRET, function(err, decoded) {
       //   console.log(decoded.email) // bar
       // });
