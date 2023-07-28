@@ -89,9 +89,9 @@ const Footer = () => {
                 </h2>
                 <nav className="mb-10 list-none">
                   <li className="mt-3">
-                    <a className="text-gray-500 cursor-pointer hover:text-gray-900">
+                    <Link href="/about" className="text-gray-500 cursor-pointer hover:text-gray-900">
                       Company
-                    </a>
+                    </Link>
                   </li>
                   <li className="mt-3">
                     <a className="text-gray-500 cursor-pointer hover:text-gray-900">
@@ -99,9 +99,9 @@ const Footer = () => {
                     </a>
                   </li>
                   <li className="mt-3">
-                    <a className="text-gray-500 cursor-pointer hover:text-gray-900">
+                    <Link href="/blogs" className="text-gray-500 cursor-pointer hover:text-gray-900">
                       Blog
-                    </a>
+                    </Link>
                   </li>
                 </nav>
               </div>

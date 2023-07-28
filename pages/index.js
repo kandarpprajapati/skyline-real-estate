@@ -2,13 +2,18 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-const inter = Inter({ subsets: ["latin"] });
 import { useRouter } from "next/router";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import mongoose from "mongoose";
+import Property from "../models/Property";
 
-export default function Home() {
+export default function Home({property}) {
   const router = useRouter();
   const ref = useRef(null);
+
+  // useEffect(() => {
+  //   console.log(property);
+  // }, []);
 
   return (
     <>
@@ -771,7 +776,7 @@ export default function Home() {
         </section>
         {/* About Section */}
 
-        {/* Property 2 Section */}
+        {/* Property Section */}
         <div
           id="propertySec"
           ref={ref}
@@ -779,127 +784,144 @@ export default function Home() {
         >
           <div className="text-3xl font-semibold text-center">Properties</div>
           <div className="flex -mx-4 justify-center pt-6">
-            <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-              <a
-                href="#"
-                class="block rounded-lg p-4 shadow-sm shadow-indigo-400 bg-slate-50"
+          {property.map((property) => {
+          return (
+            <div key={property.slug} className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4" >
+              <Link
+                href={`/property/${property.slug}`}
+                className="block rounded-lg p-4 shadow-sm shadow-indigo-400 bg-slate-50"
               >
                 <img
                   alt="Home"
-                  src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                  class="h-56 w-full rounded-md object-cover"
+                  src={property.images}
+                  className="h-56 w-full rounded-md object-cover"
                 />
 
-                <div class="mt-2">
+                <div className="mt-2">
                   <dl>
                     <div className="mb-2">
                       <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-                        Sell
+                      {property.list_for}
                       </span>
                       <span className="inline-block px-3 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs ml-3">
                         Banglow
                       </span>
                     </div>
                     <div className="ml-1">
-                      <dt class="sr-only">Address</dt>
+                      <div className="font-medium">{property.name}</div>
+                    </div>
+                    <div className="ml-1">
+                      <dt className="sr-only">Address</dt>
 
-                      <dd class="font-medium">123 Wallaby Avenue, Park Road</dd>
+                      <dd className="font-medium">{property.building_no} {property.address}</dd>
                     </div>
                     
                     <div className="ml-1">
-                      <dt class="sr-only">Price</dt>
+                      <dt className="sr-only">Price</dt>
 
-                      <dd class="text-base text-gray-700">Rs.24 Lakhs</dd>
+                      {property.list_for == "rent" ? (
+                        <div className="text-base text-gray-700 font-semibold">
+                          Rs. {property.price} / month
+                        </div>
+                      ) : (
+                        <div className="text-base text-gray-700 font-semibold">
+                          Rs. {property.price}
+                        </div>
+                      )}
                     </div>
 
                     <div className="ml-1 mt-3">
-                      <dt class="sr-only">Other Facilities</dt>
+                      <dt className="sr-only">Other Facilities</dt>
 
-                      <dd class="text-base">With Swimming Pool, Garden, Gym</dd>
+                      <div className="text-sm font-semibold text-gray-500">
+                        With {property.other_facilities}
+                      </div>
                     </div>
 
                     
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs ml-1">
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                  <div className="mt-6 flex items-center gap-8 text-xs ml-1">
+                    <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                       <svg
-                        class="h-4 w-4 text-indigo-700"
+                        className="h-4 w-4 text-indigo-700"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                         />
                       </svg>
 
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Bedroom</p>
+                      <div className="mt-1.5 sm:mt-0">
+                        <p className="text-gray-500">Bedroom</p>
 
-                        <p class="font-medium">4 rooms</p>
+                        <p className="font-medium">{property.bedrooms} rooms</p>
                       </div>
                     </div>
 
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                    <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                       <svg
-                        class="h-4 w-4 text-indigo-700"
+                        className="h-4 w-4 text-indigo-700"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
                         />
                       </svg>
 
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Hall</p>
+                      <div className="mt-1.5 sm:mt-0">
+                        <p className="text-gray-500">Hall</p>
 
-                        <p class="font-medium">1 Hall</p>
+                        <p className="font-medium">{property.halls} Hall</p>
                       </div>
                     </div>
 
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                    <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                       <svg
-                        class="h-4 w-4 text-indigo-700"
+                        className="h-4 w-4 text-indigo-700"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
                         />
                       </svg>
 
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Kitchen</p>
+                      <div className="mt-1.5 sm:mt-0">
+                        <p className="text-gray-500">Kitchen</p>
 
-                        <p class="font-medium">1 kitchen</p>
+                        <p className="font-medium">{property.kitchen} kitchen</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
+          )
+          })}
           </div>
           <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
             <Link href="/property/buyproperty">See More {">>"}</Link>
           </div>
         </div>
-        {/* Property 2 Section */}
+        {/* Property Section */}
 
         {/* Blog Section */}
         <div className="w-full py-10 overflow-hidden">
@@ -1005,369 +1027,14 @@ export default function Home() {
   );
 }
 
-{
-  /* <main className={`${styles.main} ${inter.className}`}>
-        
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main> */
-}
-
-{
-  /* Property Section */
-}
-{
-  /* <div className="bg-slate-100 w-full py-10 overflow-hidden">
-<div className="text-3xl font-semibold text-center">
-  Best Property Listings
-</div>
-<div className="flex -mx-4 justify-center pt-6">
-  <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-    <a
-      href=""
-      className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
-    >
-      <div className="relative pb-48 overflow-hidden">
-        <img
-          className="absolute inset-0 h-full w-full object-cover"
-          src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-          alt=""
-        />
-      </div>
-      <div className="p-4">
-        <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-          For Rent
-        </span>
-        <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
-        <p className="text-sm">
-          Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-          Donec ullamcorper nulla non metus auctor fringilla.
-        </p>
-        <div className="mt-3 flex items-center">
-          <span className="text-lg font-semibold">₹</span>&nbsp;
-          <span className="font-bold text-xl">4500</span>&nbsp;
-          <span className="text-sm font-semibold">/month</span>
-        </div>
-      </div>
-      <div className="p-4 border-t border-b text-xs text-gray-700">
-        <span className="flex items-center mb-1">
-          <i className="far fa-clock fa-fw mr-2"></i>
-          <div className="text-sm text-black font-medium">
-            {" "}
-            3 Bedrooms , 2 Bathrooms, 1 Hall & 1 Garage
-          </div>
-        </span>
-        <span className="flex items-center">
-          <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
-          <div className="text-lg">By</div>
-          <div className="text-lg mx-1 font-semibold text-black">
-            Kandarp
-          </div>
-        </span>
-      </div>
-      <div className="p-4 flex items-center text-sm text-gray-600">
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 fill-current text-yellow-500"
-        >
-          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-        </svg>
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 fill-current text-yellow-500"
-        >
-          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-        </svg>
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 fill-current text-yellow-500"
-        >
-          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-        </svg>
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 fill-current text-yellow-500"
-        >
-          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-        </svg>
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 fill-current text-gray-400"
-        >
-          <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-        </svg>
-        <span className="ml-2">4.3 Ratings</span>
-      </div>
-    </a>
-  </div>
-  <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-    <a
-      href=""
-      className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
-    >
-      <div className="relative pb-48 overflow-hidden">
-        <img
-          className="absolute inset-0 h-full w-full object-cover"
-          src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-          alt=""
-        />
-      </div>
-      <div className="p-4">
-        <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-          For Sell
-        </span>
-        <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
-        <p className="text-sm">
-          Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-          Donec ullamcorper nulla non metus auctor fringilla.
-        </p>
-        <div className="mt-3 flex items-center">
-          <span className="text-lg font-semibold">₹</span>&nbsp;
-          <span className="font-bold text-xl">45 Lakhs</span>&nbsp;
-          {/* <span className="text-sm font-semibold">/month</span> */
-}
-//         </div>
-//       </div>
-//       <div className="p-4 border-t border-b text-xs text-gray-700">
-//         <span className="flex items-center mb-1">
-//           <i className="far fa-clock fa-fw mr-2"></i>
-//           <div className="text-sm text-black font-medium">
-//             {" "}
-//             2 Bedrooms, 1 Kitchen, 2 Hall{" "}
-//           </div>
-//         </span>
-//         <span className="flex items-center">
-//           <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
-//           <div className="text-lg">By</div>
-//           <div className="text-lg mx-1 font-semibold text-black">
-//             Hardik
-//           </div>
-//         </span>
-//       </div>
-//       <div className="p-4 flex items-center text-sm text-gray-600">
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-gray-400"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <span className="ml-2">4.3 Ratings</span>
-//       </div>
-//     </a>
-//   </div>
-//   <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-//     <a
-//       href=""
-//       className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
-//     >
-//       <div className="relative pb-48 overflow-hidden">
-//         <img
-//           className="absolute inset-0 h-full w-full object-cover"
-//           src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-//           alt=""
-//         />
-//       </div>
-//       <div className="p-4">
-//         <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-//           For Rent
-//         </span>
-//         <h2 className="mt-2 mb-2  font-bold">Mordern Apartment</h2>
-//         <p className="text-sm">
-//           Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-//           Donec ullamcorper nulla non metus auctor fringilla.
-//         </p>
-//         <div className="mt-3 flex items-center">
-//           <span className="text-lg font-semibold">₹</span>&nbsp;
-//           <span className="font-bold text-xl">10500</span>&nbsp;
-//           <span className="text-sm font-semibold">/month</span>
-//         </div>
-//       </div>
-//       <div className="p-4 border-t border-b text-xs text-gray-700">
-//         <span className="flex items-center mb-1">
-//           <i className="far fa-clock fa-fw mr-2"></i>
-//           <div className="text-sm text-black font-medium">
-//             {" "}
-//             4 Bedrooms, 1 Kitchen, 2 Hall & 1 Garage
-//           </div>
-//         </span>
-//         <span className="flex items-center">
-//           <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>
-//           <div className="text-lg">By</div>
-//           <div className="text-lg mx-1 font-semibold text-black">
-//             xyz
-//           </div>
-//         </span>
-//       </div>
-//       <div className="p-4 flex items-center text-sm text-gray-600">
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-yellow-500"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <svg
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//           className="h-4 w-4 fill-current text-gray-400"
-//         >
-//           <path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path>
-//         </svg>
-//         <span className="ml-2">4.3 Ratings</span>
-//       </div>
-//     </a>
-//   </div>
-// </div>
-// <div className="text-xl font-semibold text-gray-700 mt-3 text-center">
-//   <a href="">See More {">>"}</a>
-// </div>
-// </div> */}
-{
-  /* Property Section */
+export async function getStaticProps() {
+  let error = null;
+  if (!mongoose.connections[0].readyState) {
+    await mongoose.connect("mongodb://localhost:27017/skyline");
+  }
+  const property = await Property.find();
+  // const property = await Property.find({}).sort({createdAt: 'desc'}).limit(3).exec()
+  return {
+    props: { property: JSON.parse(JSON.stringify(property)) },
+  };
 }

@@ -1,14 +1,49 @@
+import { getStaticProps } from "@/pages/property/buyproperty";
 import { set } from "mongoose";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUserCircle } from "react-icons/fa";
 
-const NavBar = ({ user , logout}) => {
+const NavBar = ({ user, logout }) => {
   const [open, setOpen] = useState(false);
   const [flyer, setFlyer] = useState(false);
   const [flyerTwo, setFlyerTwo] = useState(false);
   const [dropDown, setDropdown] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+  });
 
+  useEffect(() => {
+    let token1 = localStorage.getItem("token");
+    // console.log(typeof(token1));
+    const user = localStorage.getItem("myuser");
+
+    if (token1 && user) {
+      fetchData(token1);
+      // console.log(token);
+      // console.log(userinfo);
+    }
+  }, []);
+
+  const fetchData = async (token) => {
+    let data = { token: token };
+    console.log(data);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const response = await res.json();
+    setData((prev) => ({
+      ...prev,
+      name: response.name,
+      email: response.email,
+    }));
+  };
 
   return (
     <>
@@ -407,7 +442,7 @@ const NavBar = ({ user , logout}) => {
                         className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                       >
                         {/* Heroicon name: outline/bookmark-alt */}
-                        
+
                         <svg
                           className="flex-shrink-0 h-6 w-6 text-indigo-600"
                           xmlns="http://www.w3.org/2000/svg"
@@ -428,7 +463,8 @@ const NavBar = ({ user , logout}) => {
                             List your property
                           </p>
                           <p className="mt-1 text-sm text-gray-500">
-                            List your property to be featured on our platform and start earning.
+                            List your property to be featured on our platform
+                            and start earning.
                           </p>
                         </div>
                       </Link>
@@ -457,7 +493,8 @@ const NavBar = ({ user , logout}) => {
                             Purchase property
                           </p>
                           <p className="mt-1 text-sm text-gray-500">
-                            Purchase property from our platform and get the best deals.
+                            Purchase property from our platform and get the best
+                            deals.
                           </p>
                         </div>
                       </Link>
@@ -542,12 +579,12 @@ const NavBar = ({ user , logout}) => {
               >
                 Blogs
               </Link>
-              <a
-                href="#"
+              <Link
+                href="/about"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
                 About
-              </a>
+              </Link>
             </nav>
             <div className="md:flex items-center justify-end md:flex-1 lg:w-0">
               <a
@@ -561,7 +598,7 @@ const NavBar = ({ user , logout}) => {
                 {dropDown && (
                   <div
                     id="dropdownInformation"
-                    class="bg-white divide-gray-100 rounded-lg shadow w-64 dark:bg-gray-700 dark:divide-gray-600 absolute top-14 right-5 z-10 border border-gray-300"
+                    className="bg-white divide-gray-100 rounded-lg shadow w-64 dark:bg-gray-700 dark:divide-gray-600 absolute top-14 right-5 z-10 border border-gray-300"
                     onMouseOver={() => {
                       setDropdown(true);
                     }}
@@ -570,22 +607,20 @@ const NavBar = ({ user , logout}) => {
                     }}
                   >
                     <Link href="/profile">
-                      <div class="px-4 py-3 text-sm text-gray-900 dark:text-white cursor-default">
-                        <div>Kandarp Prajapati</div>
-                        <div class="font-medium truncate">
-                          kandarpop@gmail.com
-                        </div>
+                      <div className="px-4 py-3 text-sm text-gray-900 dark:text-white cursor-default">
+                        <div>{data.name}</div>
+                        <div className="font-medium truncate">{data.email}</div>
                       </div>
                       <hr />
                     </Link>
                     <ul
-                      class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
                       aria-labelledby="dropdownInformationButton"
                     >
                       <li>
                         <Link
                           href="/myaccount"
-                          class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           My Account
                         </Link>
@@ -593,7 +628,7 @@ const NavBar = ({ user , logout}) => {
                       <li>
                         <a
                           href="#"
-                          class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Listed Properties
                         </a>
@@ -601,18 +636,18 @@ const NavBar = ({ user , logout}) => {
                       <li>
                         <a
                           href="#"
-                          class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           History
                         </a>
                       </li>
                     </ul>
-                    
-                    <div class="py-2">
-                    <hr />
+
+                    <div className="py-2">
+                      <hr />
                       <a
                         href="#"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                         onClick={logout}
                       >
                         Sign out
