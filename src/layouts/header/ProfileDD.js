@@ -13,7 +13,13 @@ import {
   Button,
   Divider,
 } from "@mui/material";
+import { useRouter } from "next/router";
+
+
 const ProfileDD = () => {
+
+  const router = useRouter();
+
   const [anchorEl4, setAnchorEl4] = React.useState(null);
 
   const handleClick4 = (event) => {
@@ -23,6 +29,13 @@ const ProfileDD = () => {
   const handleClose4 = () => {
     setAnchorEl4(null);
   };
+
+  const logoutFunc = () => {
+    localStorage.removeItem("admintoken");
+    localStorage.removeItem("myadmin");
+    router.push('/admin/login'); 
+  };
+
   return (
     <>
       <Button
@@ -105,11 +118,9 @@ const ProfileDD = () => {
           </Box>
           <Divider />
           <Box p={2}>
-            <Link to="/">
-              <Button fullWidth variant="contained" color="primary">
+              <Button fullWidth variant="outlined" color="primary" onClick={logoutFunc} >
                 Logout
               </Button>
-            </Link>
           </Box>
         </Box>
       </Menu>
