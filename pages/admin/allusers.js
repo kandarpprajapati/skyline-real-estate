@@ -6,11 +6,15 @@ import { Grid } from "@mui/material";
 import UsersCont from "@/src/components/dashboard/userscont";
 import mongoose from "mongoose";
 import User from "../../models/User";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const AllUsers = (users) => {
+const AllUsers = ({users}) => {
+
+  // const [userArr, setUserArr] = useState([users])
+
   useEffect(() => {
     console.log(users);
+    // console.log(userArr[0]);
   }, []);
 
   return (
@@ -42,6 +46,7 @@ export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect("mongodb://localhost:27017/skyline");
   }
+
   const users = await User.find();
   // const property = await Property.find({}).sort({createdAt: 'desc'}).limit(3).exec()
   return {

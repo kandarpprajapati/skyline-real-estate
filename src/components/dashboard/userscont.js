@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Box,
@@ -10,9 +10,28 @@ import {
   Chip,
 } from "@mui/material";
 import BaseCard from "../baseCard/BaseCard";
+import { useEffect } from "react";
 
 const UserCont = ({ users }) => {
   let count = 1;
+
+  // const [statusS, setStatus] = useState("");
+
+  // // Method to change status
+  // const changeStatus = (status) => {
+  //   // if (statusS == "") {
+  //   //   setStatus(status);
+  //   // }
+
+  //   setStatus(status);
+  //   if (statusS == "Active") {
+  //     setStatus("Inactive");
+  //   } else {
+  //     setStatus("Active");
+  //   }
+
+  //   console.log(statusS);
+  // };
 
   return (
     <BaseCard title="All Users">
@@ -42,19 +61,19 @@ const UserCont = ({ users }) => {
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="h6">
-                Sell/Rent
+                Mobile
               </Typography>
             </TableCell>
             <TableCell align="right">
               <Typography color="textSecondary" variant="h6">
-                Price
+                Status
               </Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map((users) => (
-            <TableRow key={users.name}>
+          {Array.from(users).map((users) => (
+            <TableRow key={users.email}>
               <TableCell>
                 <Typography
                   sx={{
@@ -94,23 +113,25 @@ const UserCont = ({ users }) => {
               </TableCell>
               <TableCell>
                 <Typography color="textSecondary" variant="h6">
-                  {/* {users.address} */}
+                  {users.address}
                 </Typography>
               </TableCell>
               <TableCell>
+                <Typography variant="h6">{users.mobile}</Typography>
+              </TableCell>
+              <TableCell align="right">
                 <Chip
                   sx={{
                     pl: "6px",
                     pr: "6px",
-                    backgroundColor: "#FF8C00",
+                    backgroundColor: "#50C878",
+                    //  EB5406 - Red 
                     color: "#fff",
                   }}
                   size="small"
-                  // label={users.list_for}
+                  label={users.status}
+                  // onClick={() => changeStatus(users.status)}
                 ></Chip>
-              </TableCell>
-              <TableCell align="right">
-                <Typography variant="h6">{/* ₹ {users.price} */}</Typography>
               </TableCell>
             </TableRow>
           ))}

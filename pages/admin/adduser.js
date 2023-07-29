@@ -16,6 +16,8 @@ import {
   Button,
 } from "@mui/material";
 import BaseCard from "../../src/components/baseCard/BaseCard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddUser = () => {
   const [formData, setFormData] = useState({});
@@ -41,6 +43,33 @@ const AddUser = () => {
 
     const data = await res.json();
     console.log(data);
+
+    if (data.success) {
+      toast.success("User has been added !!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+      setFormData({});
+
+    } else {
+      toast.error(data.error, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
 
   return (
@@ -53,6 +82,10 @@ const AddUser = () => {
           display: none;
         }
       `}</style>
+      <ToastContainer
+        newestOnTop={false}
+        rtl={false}
+      />
       <ThemeProvider theme={theme}>
         <FullLayout>
           <Grid container spacing={0}>

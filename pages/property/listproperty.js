@@ -177,7 +177,6 @@ const ListProperty = () => {
   return (
     <>
       <ToastContainer
-        position="bottom-left"
         autoClose={4000}
         hideProgressBar={false}
         newestOnTop={false}
